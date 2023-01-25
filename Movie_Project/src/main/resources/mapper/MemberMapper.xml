@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.myapp.movie.member.IMemberRepository">
+
+	<resultMap id="memberMap" type="com.project.myapp.movie.member.MemberVO">
+		<result property="memberId" column="MEMBER_ID" />
+		<result property="email" column="EMAIL" />
+		<result property="password" column="PASSWORD" />
+		<result property="nickname" column="NICKNAME" />
+		<result property="birthDate" column="BIRTH_DATE" />
+		<result property="phoneNumber" column="PHONE_NUMBER" />
+		<result property="gender" column="GENDER" />
+		<result property="favoriteGenre1" column="FAVORITE_GENRE1" />
+		<result property="favoriteGenre2" column="FAVORITE_GENRE2" />
+		<result property="favoriteGenre3" column="FAVORITE_GENRE3" />
+		<result property="memberType" column="MEMBER_TYPE" />
+	</resultMap>
+	
+	<select id="getMemberList" resultMap="memberMap">
+		SELECT * FROM MEMBER
+	</select>
+	
+
+</mapper>
