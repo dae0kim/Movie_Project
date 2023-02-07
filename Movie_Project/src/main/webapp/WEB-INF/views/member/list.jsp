@@ -4,29 +4,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CoderBy</title>
+<title>Member</title>
 </head>
 <body>
-<h1>사용자 목록</h1>
+<a href="<c:url value='/adminhome'/>">메인으로가기</a><br><br>
+<h3>회원 정보 조회</h3>
 ${message} <!-- 리다이렉트 메시지 출력 -->
-<a href="<c:url value='/member/insert'/>">신규 사원 정보 입력</a>
 <table border="1">
 <tr>
-	<th>MEMBER_ID</th>
-	<th>EMAIL</th>
-	<th>PASSWORD</th>
-	<th>NICKNAME</th>
-	<th>BIRTH_DATE</th>
-	<th>PHONE_NUMBER</th>
-	<th>GENDER</th>
-	<th>FAVORITEGENRE1</th>
-	<th>FAVORITEGENRE2</th>
-	<th>FAVORITEGENRE3</th>
-	<th>MEMBER_TYPE</th>
+	<th>No.</th>
+	<th>이메일ID</th>
+	<th>비밀번호</th>
+	<th>닉네임</th>
+	<th>생년월일</th>
+	<th>휴대폰번호</th>
+	<th>성별</th>
+	<th>선호장르1</th>
+	<th>선호장르2</th>
+	<th>선호장르3</th>
+	<th>type</th>
 </tr>
 <c:forEach var="member" items="${memberList}">
 <tr>
-	<td><a href="<c:url value='/member/${member.memberId}'/>">${member.memberId}</a></td>
+	<td>${member.memberId}</td>
 	<td>${member.email}</td>
 	<td>${member.password}</td>
 	<td>${member.nickname}</td>

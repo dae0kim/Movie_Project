@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.myapp.movie.film.IFilmRepository">
+	
+	<!-- 작성자 : 김대영 -->
+	<select id="getFilmList" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT  f.film_id AS filmId,
+		       f.film_title AS filmTitle,
+		       f.release_date AS releaseDate,
+		       f.run_time AS runTime,
+		       f.star_average AS starAverage,
+		       f.review_count AS reviewCount,
+		       f.genre AS genre,
+		       f.director AS director,
+		       f.main_actor AS mainActor,
+		       f.sub_actor AS subActor,
+		       f.summary AS summary,
+		       f.film_rate AS filmRate,
+		       f.country AS country,
+		       u.file_name AS fileName,
+		       u.file_id AS fileId
+		FROM FILM f JOIN UPLOAD_FILE u
+		ON f.film_id = u.film_id
+		ORDER BY f.film_id ASC
+	</select>
+	
+	<!-- 작성자 : 김대영 -->
+	<select id="getFilmListByReview" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT f.film_id AS filmId,
+		       f.film_title AS filmTitle,
+		       f.release_date AS releaseDate,
+		       f.run_time AS runTime,
+		       f.star_average AS starAverage,
+		       f.review_count AS reviewCount,
+		       f.genre AS genre,
+		       f.director AS director,
+		       f.main_actor AS mainActor,
+		       f.sub_actor AS subActor,
+		       f.summary AS summary,
+		       f.film_rate AS filmRate,
+		       f.country AS country,
+		       u.file_name AS fileName,
+		       u.file_id AS fileId
+		FROM FILM f JOIN UPLOAD_FILE u
+		ON f.film_id = u.film_id
+		ORDER BY f.review_count DESC
+	</select>
+	<!-- 작성자 : 김대영 -->
+	<select id="getFilmListByStar" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT f.film_id AS filmId,
+		       f.film_title AS filmTitle,
+		       f.release_date AS releaseDate,
+		       f.run_time AS runTime,
+		       f.star_average AS starAverage,
+		       f.review_count AS reviewCount,
+		       f.genre AS genre,
+		       f.director AS director,
+		       f.main_actor AS mainActor,
+		       f.sub_actor AS subActor,
+		       f.summary AS summary,
+		       f.film_rate AS filmRate,
+		       f.country AS country,
+		       u.file_name AS fileName,
+		       u.file_id AS fileId
+		FROM FILM f JOIN UPLOAD_FILE u
+		ON f.film_id = u.film_id
+		ORDER BY f.star_average DESC
+	</select>
+	
+	<!-- 작성자 : 김대영 -->
+	<select id="getFilmListByGenre" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT DISTINCT 
+		    f.film_title AS filmTitle,
+		    f.star_average AS starAverage,
+		    u.file_name AS fileName,
+		    f.film_id AS filmId,
+		    u.file_id AS fileId
+		FROM (film f JOIN member m
+		    ON f.genre in (m.favorite_genre1,m.favorite_genre2,m.favorite_genre3)) JOIN upload_file u
+		    ON f.film_id = u.film_id
+		WHERE m.member_id = #{memberId}
+	</select>
+	
+	<!-- 작성자 : 김대영 -->
+	<insert id="insertFilm" parameterType="com.project.myapp.movie.film.FilmVO">
+		Insert into FILM (
+			FILM_ID,
+			FILM_TITLE,
+			RELEASE_DATE,
+			RUN_TIME,
+			GENRE,
+			DIRECTOR,
+			MAIN_ACTOR,
+			SUB_ACTOR,
+			SUMMARY,
+			FILM_RATE,
+			COUNTRY) 
+		values (
+			Film_SEQ.nextval,
+			#{filmTitle},
+			#{releaseDate},
+			#{runTime},
+			#{genre},
+			#{director},
+			#{mainActor},
+			#{subActor},
+			#{summary},
+			#{filmRate},
+			#{country})
+	</insert>
+	
+	<!-- 작성자 : 김대영 -->
+	<update id="updateFilm" parameterType="com.project.myapp.movie.film.FilmVO">
+		UPDATE FILM
+		SET FILM_TITLE = #{filmTitle}, RELEASE_DATE=#{releaseDate},RUN_TIME=#{runTime},GENRE=#{genre},
+		    DIRECTOR=#{director},MAIN_ACTOR=#{mainActor},SUB_ACTOR=#{subActor},SUMMARY=#{summary},
+		    FILM_RATE=#{filmRate},COUNTRY=#{country}
+		WHERE film_id = #{filmId}
+	</update>
+	
+	<!-- 작성자 : 김대영 -->
+	<delete id="deleteFilm" parameterType="String">
+		DELETE 
+		FROM film
+		WHERE film_id=#{filmId}
+	</delete>
+	
+	  <!--  필름 상세보기  -->
+	  <!-- 작성자 : 손일형 -->
+	  <select id="getFilmInfo" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT f.film_id AS filmId,
+			   f.film_title AS filmTitle,
+			   f.release_date AS releaseDate,
+			   f.run_time AS runTime,
+			   f.star_average AS starAverage,
+			   f.review_count AS reviewCount,
+			   f.genre AS genre,
+			   f.director AS director,
+			   f.main_actor AS mainActor,
+			   f.sub_actor AS subActor,
+			   f.summary AS summary,
+			   f.film_rate AS filmRate,
+			   f.country AS country,
+               u.file_name AS fileName,
+               u.file_id AS fileId
+		FROM FILM f JOIN upload_file u 
+        ON f.film_id = u.file_id
+		WHERE f.film_id = #{filmId}
+	</select> 
+	
+	<!-- 별점 평균 출력 -->
+	<!-- 작성자 : 손일형 -->
+	<update id="updateStarAvg" parameterType="String">
+		UPDATE FILM
+		SET star_average = ( 
+	    				SELECT ROUND(AVG(star_score),2)
+	   				    FROM review
+	 				    WHERE film_id = #{filmId})
+		WHERE film_id = #{filmId}
+	</update>
+	
+	<!-- 총 리뷰 수 카운트 -->
+	<!-- 작성자 : 손일형 -->
+	<update id="updateRivewCount" parameterType="String">
+		UPDATE film
+		SET review_count = review_count + 1
+		WHERE film_id = #{filmId}
+	</update>
+	
+	<!-- 같은장르 영화 추천 -->
+	<!-- 작성자 : 손일형 -->
+	<select id="getFilmListByGenreFilmInfo" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">						    
+		select f1.film_id AS filmId,
+			   f1.film_title AS filmTitle,
+               u.file_name AS fileName,
+               u.file_id AS fileId,
+			   f1.genre AS genre
+		from film f1 JOIN upload_file u 
+        ON f1.film_id = u.file_id
+		where f1.genre = (  select f2.genre
+						    from film f2
+						    where f2.film_id= #{filmId} )
+	</select> 
+	
+	<!-- 김미리 작성 : 영화 검색 결과 리스트 -->
+	<select id="getFilmSearch" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT 	
+				f.FILM_TITLE 		AS 	filmTitle,
+		        f.RELEASE_DATE 		AS 	releaseDate,
+		        f.director         AS 	director,
+		        f.GENRE			AS	genre,
+		        f.main_actor			AS	mainActor,
+		        f.sub_actor			AS	subActor,
+		        f.film_id          AS filmId,
+		        u.file_name AS fileName,
+		        u.file_id AS fileId
+		FROM FILM f JOIN upload_file u 
+		ON f.film_id = u.file_id 
+		WHERE f.FILM_TITLE Like '%' ||  #{keyword} || '%'
+	</select>
+	
+	<!-- 김미리 작성 : 감독 검색 결과 리스트 -->
+	<select id="getDrectorSearch" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT 	
+				f.FILM_TITLE 		AS 	filmTitle,
+		        f.RELEASE_DATE 		AS 	releaseDate,
+		        f.director         AS 	director,
+		        f.GENRE			AS	genre,
+		        f.main_actor			AS	mainActor,
+		        f.sub_actor			AS	subActor,
+		        f.film_id          AS filmId,
+		        u.file_name AS fileName,
+		        u.file_id AS fileId
+		FROM FILM f JOIN upload_file u 
+		ON f.film_id = u.file_id 
+		WHERE f.DIRECTOR Like '%' ||  #{keyword} || '%' 
+	</select>
+	
+	<!-- 김미리 작성 : 배역 검색 결과 리스트 -->
+	<select id="getActorSearch" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
+		SELECT 	
+				f.FILM_TITLE 		AS 	filmTitle,
+		        f.RELEASE_DATE 		AS 	releaseDate,
+		        f.director         AS 	director,
+		        f.GENRE			AS	genre,
+		        f.main_actor			AS	mainActor,
+		        f.sub_actor			AS	subActor,
+		        f.film_id          AS filmId,
+		        u.file_name AS fileName,
+		        u.file_id AS fileId
+		FROM FILM f JOIN upload_file u 
+		ON f.film_id = u.file_id 
+		WHERE f.MAIN_ACTOR Like '%' || #{keyword} || '%' OR f.sub_actor Like '%' ||  #{keyword} || '%'
+	</select>
+	
+</mapper>

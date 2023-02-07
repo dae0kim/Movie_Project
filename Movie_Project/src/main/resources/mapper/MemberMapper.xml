@@ -21,5 +21,84 @@
 		SELECT * FROM MEMBER
 	</select>
 	
+	<!-- 작성자: 이기쁨 -->
+	<!-- 로그인시 이메일, 비밀번호 확인 -->
+	<select id="loginCheck" resultMap="memberMap">
+		SELECT * FROM MEMBER WHERE email = #{email} AND password = #{password}
+	</select>
+	
+	<!-- 작성자: 이기쁨 -->
+	<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="com.project.myapp.movie.member.MemberVO">
+		INSERT INTO MEMBER
+			(MEMBER_ID, EMAIL, PASSWORD, NICKNAME, BIRTH_DATE,
+			PHONE_NUMBER, GENDER, FAVORITE_GENRE1, FAVORITE_GENRE2, FAVORITE_GENRE3)
+		VALUES
+			(member_seq.nextval, #{email}, #{password}, #{nickname}, #{birthDate},
+			#{phoneNumber}, #{gender}, #{favoriteGenre1}, #{favoriteGenre2}, #{favoriteGenre3})	
+	</insert>
+	
+	<!-- 작성자: 이기쁨 -->
+	<!-- 회원가입시 휴대폰번호 중복 확인 -->
+	<!-- 회원가입시 이메일 중복 확인 -->
+	<!-- 회원가입시 닉네임 중복 확인 -->
+	<select id="overlapChk" parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM MEMBER
+		<where>
+			<if test="email != null">
+				EMAIL = #{email}
+			</if>
+			<if test="nickname != null">
+				AND NICKNAME = #{nickname}
+			</if>
+			<if test="phoneNumber != null">
+				AND PHONE_NUMBER = #{phoneNumber}
+			</if>		
+		</where>
+	</select>
+	
+	<!-- 작성자: 이기쁨 -->
+	<!-- 이메일 찾기 -->
+	<select id="emailSearch" parameterType="String" resultType="String">
+		SELECT email FROM member WHERE PHONE_NUMBER=#{phoneNumber} AND BIRTH_DATE=#{birthDate}
+	</select>
+	
+	<!-- 작성자: 이기쁨 -->
+	<!-- 일치하는 회원 정보 가져오기(동적sql) -->
+	<select id="getMemberInfo" resultMap="memberMap">
+		SELECT * FROM MEMBER 
+		<where>
+			<if test="email != null">
+				EMAIL = #{email}
+			</if>
+			<if test="password != null">
+				AND PASSWORD = #{password}
+			</if>
+			<if test="birthDate != null">
+				AND BIRTH_DATE = #{birthDate}
+			</if>
+			<if test="phoneNumber != null">
+				AND PHONE_NUMBER = #{phoneNumber}
+			</if>
+		</where>
+	</select>
+
+	<!-- 작성자: 이기쁨 -->
+	<!-- 1. 비밀번호 변경 -->
+	<!-- 2. 회원정보 수정 -->
+	<update id="updateMember" parameterType="com.project.myapp.movie.member.MemberVO">
+		UPDATE MEMBER
+		<set>
+			<if test="password != null">PASSWORD = #{password},</if>
+			<if test="phoneNumber != null">PHONE_NUMBER = #{phoneNumber}</if>
+		</set>
+		WHERE EMAIL=#{email}
+	</update>
+	
+	<!-- 멤버 삭제 -->
+	<!-- 작성자: 이기쁨 -->
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM MEMBER WHERE MEMBER_ID = #{memberId}	
+	</delete>
 
 </mapper>

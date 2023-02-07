@@ -2,6 +2,10 @@ package com.project.myapp.movie.basket;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.project.myapp.movie.film.FilmVO;
+
 public interface IBasketRepository {
 	/*
 	 * 사용자 기능만 존재
@@ -19,10 +23,17 @@ public interface IBasketRepository {
 	
 	// 바구니에 담기
 	void insertBasket(BasketVO basket);
-	
+		
 	// 바구니에서 영화 삭제
-	void deleteBasket(String basketId);
+	void deleteBasket(@Param("memberId") String memberId, @Param("basketId") String basketId );
 	
-	// 사용자의 바구니 리스트 출력
-	List<BasketVO> getBasketList();
+	// 사용자의 바구니 리스트 전체 출력
+	List<FilmVO> getBasketList(@Param("memberId") String memberId);
+	
+	// 바구니 담을 때  이미 들어있는지 체크
+	List<FilmVO> getBasketList_chk(@Param("memberId") String memberId, @Param("filmId") String filmId);
+
+	//작성자: 이기쁨
+	//장바구니 삭제
+	int deleteBasket2(String memberId);
 }

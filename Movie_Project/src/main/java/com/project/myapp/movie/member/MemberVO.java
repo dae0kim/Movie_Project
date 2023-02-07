@@ -1,13 +1,11 @@
 package com.project.myapp.movie.member;
 
-import java.sql.Date;
-
 public class MemberVO {
-	private int memberId;
+	private String memberId;
 	private String email;
 	private String password;
 	private String nickname;
-	private Date birthDate;
+	private String birthDate;
 	private String phoneNumber;
 	private String gender;
 	private String favoriteGenre1;
@@ -15,10 +13,10 @@ public class MemberVO {
 	private String favoriteGenre3;
 	private String memberType;
 	
-	public int getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(int memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 	public String getEmail() {
@@ -39,10 +37,10 @@ public class MemberVO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public Date getBirthDate() {
+	public String getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(String birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getPhoneNumber() {
@@ -91,6 +89,7 @@ public class MemberVO {
 				+ ", favoriteGenre1=" + favoriteGenre1 + ", favoriteGenre2=" + favoriteGenre2 + ", favoriteGenre3="
 				+ favoriteGenre3 + ", memberType=" + memberType + "]";
 	}
+	
 	
 	
 }

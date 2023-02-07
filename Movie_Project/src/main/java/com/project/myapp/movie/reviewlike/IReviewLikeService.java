@@ -1,9 +1,14 @@
 package com.project.myapp.movie.reviewlike;
 
 public interface IReviewLikeService {
-	// 좋아요 누르기
+
+	// 1. 좋아요 누름
 	void insertReviewLike(ReviewLikeVO reviewLike);
 	
-	// 좋아요 수 반환
-	int getReviewLikeCount(int reviewId);
+	// 2. 리뷰의 좋아요 수 COUNT
+	String getReviewLikeCount(String reviewId);
+	
+	// 3. 내가 좋아요를 했는지 체크
+	String likeCheck(String reviewId, String memberId);
+
 }

@@ -1,33 +1,35 @@
 package com.project.myapp.movie.basket;
 
 public class BasketVO {
-	private int basketId;
-	private int memberId;
-	private int filmId;
+	private String basketId;
+	private String memberId;
+	private String filmId;
 	
-	public int getBasketId() {
+	public String getBasketId() {
 		return basketId;
 	}
-	public void setBasketId(int basketId) {
+	public void setBasketId(String basketId) {
 		this.basketId = basketId;
 	}
-	public int getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(int memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public int getFilmId() {
+	public String getFilmId() {
 		return filmId;
 	}
-	public void setFilmId(int filmId) {
+	public void setFilmId(String filmId) {
 		this.filmId = filmId;
 	}
 	
 	BasketVO(){}
+	
 	@Override
 	public String toString() {
 		return "BasketVO [basketId=" + basketId + ", memberId=" + memberId + ", filmId=" + filmId + "]";
 	}
+
 	
 }

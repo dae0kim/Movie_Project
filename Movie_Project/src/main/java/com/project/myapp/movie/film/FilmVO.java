@@ -1,13 +1,14 @@
 package com.project.myapp.movie.film;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class FilmVO {
-	private int filmId;
+	private String filmId;
 	private String filmTitle;
 	private String releaseDate;
-	private String posterUrl;
-	private int starAverage;
 	private String runTime;
-	private int reviewCount;
+	private String starAverage;
+	private String reviewCount;
 	private String genre;
 	private String director;
 	private String mainActor;
@@ -15,12 +16,19 @@ public class FilmVO {
 	private String summary;
 	private String filmRate;
 	private String country;
-	private String filmStatus;
 	
-	public int getFilmId() {
+	private MultipartFile file;
+	private String fileId;
+	private String fileName;
+	private String fileSize;
+	private String fileContentType;
+	
+	private String basketId; 		
+	
+	public String getFilmId() {
 		return filmId;
 	}
-	public void setFilmId(int filmId) {
+	public void setFilmId(String filmId) {
 		this.filmId = filmId;
 	}
 	public String getFilmTitle() {
@@ -35,28 +43,22 @@ public class FilmVO {
 	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-	public String getPosterUrl() {
-		return posterUrl;
-	}
-	public void setPosterUrl(String posterUrl) {
-		this.posterUrl = posterUrl;
-	}
-	public int getStarAverage() {
-		return starAverage;
-	}
-	public void setStarAverage(int starAverage) {
-		this.starAverage = starAverage;
-	}
 	public String getRunTime() {
 		return runTime;
 	}
 	public void setRunTime(String runTime) {
 		this.runTime = runTime;
 	}
-	public int getReviewCount() {
+	public String getStarAverage() {
+		return starAverage;
+	}
+	public void setStarAverage(String starAverage) {
+		this.starAverage = starAverage;
+	}
+	public String getReviewCount() {
 		return reviewCount;
 	}
-	public void setReviewCount(int reviewCount) {
+	public void setReviewCount(String reviewCount) {
 		this.reviewCount = reviewCount;
 	}
 	public String getGenre() {
@@ -101,21 +103,52 @@ public class FilmVO {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public String getFilmStatus() {
-		return filmStatus;
+	public MultipartFile getFile() {
+		return file;
 	}
-	public void setFilmStatus(String filmStatus) {
-		this.filmStatus = filmStatus;
+	public void setFile(MultipartFile file) {
+		this.file = file;
 	}
-	
+	public String getFileId() {
+		return fileId;
+	}
+	public void setFileId(String fileId) {
+		this.fileId = fileId;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
+	}
+	public String getFileContentType() {
+		return fileContentType;
+	}
+	public void setFileContentType(String fileContentType) {
+		this.fileContentType = fileContentType;
+	}
+	public String getBasketId() {
+		return basketId;
+	}
+	public void setBasketId(String basketId) {
+		this.basketId = basketId;
+	}
 	FilmVO(){}
+	
 	@Override
 	public String toString() {
-		return "FilmVO [filmId=" + filmId + ", filmTitle=" + filmTitle + ", releaseDate=" + releaseDate + ", posterUrl="
-				+ posterUrl + ", starAverage=" + starAverage + ", runTime=" + runTime + ", reviewCount=" + reviewCount
-				+ ", genre=" + genre + ", director=" + director + ", mainActor=" + mainActor + ", subActor=" + subActor
-				+ ", summary=" + summary + ", filmRate=" + filmRate + ", country=" + country + ", filmStatus="
-				+ filmStatus + "]";
+		return "FilmVO [filmId=" + filmId + ", filmTitle=" + filmTitle + ", releaseDate=" + releaseDate + ", runTime="
+				+ runTime + ", starAverage=" + starAverage + ", reviewCount=" + reviewCount + ", genre=" + genre
+				+ ", director=" + director + ", mainActor=" + mainActor + ", subActor=" + subActor + ", summary="
+				+ summary + ", filmRate=" + filmRate + ", country=" + country + ", file=" + file + ", fileId=" + fileId
+				+ ", fileName=" + fileName + ", fileSize=" + fileSize + ", fileContentType=" + fileContentType
+				+ ", basketId=" + basketId + "]";
 	}
 	
 }

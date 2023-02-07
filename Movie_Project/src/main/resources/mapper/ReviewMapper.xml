@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.project.myapp.movie.review.IReviewRepository">
+	<resultMap type="com.project.myapp.movie.review.ReviewVO" id="reviewMap">
+		<result property="reviewId" column="review_id" />
+      	<result property="reviewContent" column="review_content" />
+		<result property="starScore" column="star_score" />
+		<result property="reviewDate" column="review_date" />
+		<result property="reviewStatus" column="review_status" />
+		<result property="likeCount" column="like_count" />
+		<result property="memberId" column="member_id" />
+		<result property="filmId" column="film_id" />
+	</resultMap>
+   
+	<resultMap type="com.project.myapp.movie.film.FilmVO" id="filmMap">
+	   <result property="filmId" column="film_id" />
+	   <result property="filmTitle" column="film_title" />
+	   <result property="releaseDate" column="release_date" />
+	   <result property="posterUrl" column="poster_url" />
+	   <result property="starAverage" column="star_average" />
+	   <result property="runTime" column="run_time" />
+	   <result property="reviewCount" column="review_count" />
+	   <result property="genre" column="genre" />
+	   <result property="director" column="director" />
+	   <result property="mainActor" column="mainActor" />
+	   <result property="subActor" column="subActor" />
+	   <result property="summary" column="summary" />
+	   <result property="filmRate" column="film_rate" />
+	   <result property="country" column="country" />
+	   <result property="filmStatus" column="film_status" />
+	</resultMap>
+   
+	<!-- 작성자 : 김대영 -->
+	 <select id="getMyTime" parameterType="String" resultType="String">
+		SELECT SUM(f.run_time)
+		FROM review r JOIN film f
+		ON r.film_id = f.film_id
+		WHERE r.member_id = #{memberId}
+	</select>
+	
+	<!-- 작성자 : 김대영 -->
+	<select id="getMyReviewListByTime" parameterType="String" resultType="com.project.myapp.movie.review.ReviewFilmVO">
+		SELECT 
+			f.film_title AS filmTitle,
+			f.film_id AS filmId,
+		    r.star_score AS starScore,
+		    u.file_name AS fileName,
+		    u.file_id AS fileId
+		FROM review r , film f , upload_file u
+		WHERE (r.film_id = f.film_id) AND (f.film_id = u.film_id) AND member_id=#{memberId} 
+		ORDER BY r.review_id DESC
+	</select>
+
+	<!-- 작성자 : 김대영 -->
+	<select id="getMyReviewListByStar" parameterType="String" resultType="com.project.myapp.movie.review.ReviewFilmVO">
+		SELECT 
+		    f.film_title AS filmTitle,
+		    f.film_id AS filmId,
+		    r.star_score AS starScore,
+		    u.file_name AS fileName,
+		    u.file_id AS fileId
+		FROM review r , film f , upload_file u
+		WHERE (r.film_id = f.film_id) AND (f.film_id = u.film_id) AND member_id=#{memberId} 
+		ORDER BY r.star_score DESC
+	</select> 
+	
+	<!-- 작성자 : 박주영 -->
+ 	<select id="getReviewList" resultMap="reviewMap">
+		SELECT * FROM REVIEW
+		ORDER BY REVIEW_ID desc
+	</select>
+	
+	<!-- 작성자 : 박주영 -->
+	<select id="getReviewInfo" parameterType="String" resultType="com.project.myapp.movie.review.ReviewVO">
+		SELECT 	REVIEW_ID 	AS 	reviewId,
+				MEMBER_ID 	AS 	memberId,
+				FILM_ID	AS 	filmId,
+				REVIEW_CONTENT	AS	reviewContent,
+				STAR_SCORE	AS 	starScore,
+				LIKE_COUNT	AS 	likeCount,
+				REVIEW_DATE	AS 	reviewDate,
+				REVIEW_STATUS	AS 	reviewStatus
+		FROM REVIEW WHERE REVIEW_ID = #{reviewId,jdbcType=VARCHAR}
+	</select>
+   
+	<!-- 작성자 : 박주영 -->
+   	<update id="blindReview" parameterType="String">
+		UPDATE REVIEW
+		SET REVIEW_STATUS='n'
+		WHERE REVIEW_ID=#{reviewId,jdbcType=VARCHAR}
+	</update>
+	
+	
+	<!-- 리뷰 INSERT -->
+	<!-- 작성자 : 손일형 -->
+	<insert id="insertReview" parameterType="com.project.myapp.movie.review.ReviewVO">
+		INSERT INTO review (review_id, review_content, star_score,  like_count, member_id, film_id)
+		VALUES			   (REVIEW_SEQ.nextval, #{reviewContent}, #{starScore}, 0, #{memberId}, #{filmId})
+	</insert> 
+	
+	<!-- 해당 영화의 전체 리뷰리스트 -->
+	<!-- 작성자 : 손일형 -->
+	<select id="getFilmReviewList" resultType="com.project.myapp.movie.review.ReviewVO" parameterType="String">
+		SELECT b.nickname AS nickname,
+			   a.member_id AS memberId,
+		       a.review_content AS reviewContent,
+		       a.star_score AS starScore,
+		       a.review_date AS reviewDate,
+		       a.like_count AS likeCount,
+		       a.review_id AS reviewId
+  		FROM review a join member b
+  		ON a.member_id = b.member_id
+		<if test="filmId != null">
+		WHERE film_id = #{filmId}
+		ORDER BY like_count DESC
+		</if>
+	</select>	
+	
+	<!-- 내가 작성한 리뷰 -->
+	<!-- 작성자 : 손일형 -->
+	<select id="getMyReview" resultType="com.project.myapp.movie.review.ReviewVO" parameterType="String">
+		SELECT review_content AS reviewContent,
+			   star_score AS starScore,
+			   review_id AS reviewId,
+			   like_count AS likeCount
+		FROM REVIEW
+		WHERE member_id = #{memberId} 
+		AND film_id = #{filmId}
+	</select>
+	
+	<!-- 좋아요 수 업데이트 -->
+	<!-- 작성자 : 손일형 -->
+	<update id="updateLikeCount" parameterType="String">
+		UPDATE REVIEW
+		SET like_count = (SELECT COUNT(*) 
+						  FROM REVIEW_LIKE
+						  WHERE likeyn=1 and review_id=#{reviewId})
+		WHERE review_id=#{reviewId}
+	</update>
+	
+	<!-- 리뷰 삭제 -->
+	<!-- 작성자: 이기쁨 -->
+	<delete id="deleteReview" parameterType="String">
+		DELETE FROM REVIEW WHERE MEMBER_ID = #{memberId}
+	</delete>
+	   
+</mapper>

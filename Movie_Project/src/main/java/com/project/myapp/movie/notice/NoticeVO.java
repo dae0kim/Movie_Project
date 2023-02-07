@@ -1,17 +1,15 @@
 package com.project.myapp.movie.notice;
 
-import java.sql.Date;
-
 public class NoticeVO {
-	private int noticeId;
+	private String noticeId;
 	private String noticeTitle;
 	private String noticeContent;
-	private Date noticeDate;
+	private String noticeDate;
 	
-	public int getNoticeId() {
+	public String getNoticeId() {
 		return noticeId;
 	}
-	public void setNoticeId(int noticeId) {
+	public void setNoticeId(String noticeId) {
 		this.noticeId = noticeId;
 	}
 	public String getNoticeTitle() {
@@ -26,10 +24,10 @@ public class NoticeVO {
 	public void setNoticeContent(String noticeContent) {
 		this.noticeContent = noticeContent;
 	}
-	public Date getNoticeDate() {
+	public String getNoticeDate() {
 		return noticeDate;
 	}
-	public void setNoticeDate(Date noticeDate) {
+	public void setNoticeDate(String noticeDate) {
 		this.noticeDate = noticeDate;
 	}
 	
@@ -40,5 +38,6 @@ public class NoticeVO {
 		return "NoticeVO [noticeId=" + noticeId + ", noticeTitle=" + noticeTitle + ", noticeContent=" + noticeContent
 				+ ", noticeDate=" + noticeDate + "]";
 	}
+	
 	
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.myapp.movie.uploadfile.IUploadFileRepository">
+	
+	<!-- 작성자 : 김대영 -->
+	<insert id="uploadFile" parameterType="com.project.myapp.movie.uploadfile.UploadFileVO">
+		INSERT INTO upload_file
+			(file_id, 
+			 directory_name, 
+			 file_name, 
+			 file_size, 
+			 file_content_type,
+			 file_data,
+			 film_id
+			 )
+		VALUES (
+			upload_file_SEQ.nextval,
+			#{directoryName},
+			#{fileName},
+			#{fileSize},
+			#{fileContentType},
+			#{fileData},
+			FILMPOSTER_SEQ.nextval
+		)
+	</insert>
+	
+	<!-- 작성자 : 김대영 -->
+	<select id="getImageList" parameterType="String" resultType="com.project.myapp.movie.uploadfile.UploadFileVO">
+		SELECT 
+			file_id AS fileId, 
+			directory_name AS directoryName, 
+			file_name AS fileName, 
+			file_size AS fileSize,
+			file_content_type AS fileContentType, 
+			file_data AS fileData, 
+			film_id AS filmId 
+		FROM upload_file
+		WHERE directory_name=#{directoryName}
+		ORDER BY file_id DESC
+	</select>
+	
+	<!-- 작성자 : 김대영 -->
+	<select id="getFile" parameterType="String" resultType="com.project.myapp.movie.uploadfile.UploadFileVO">
+		SELECT 
+			file_id AS fileId, 
+			directory_name AS directoryName, 
+			file_name AS fileName, 
+			file_size AS fileSize,
+			file_content_type AS fileContentType, 
+			file_data AS fileData, 
+			film_id AS filmId 
+		FROM upload_file
+		WHERE file_id = #{fileId}
+	</select>
+	
+	<!-- 작성자 : 김대영 -->
+	<update id="updateFile" parameterType="com.project.myapp.movie.uploadfile.UploadFileVO">
+		UPDATE UPLOAD_FILE 
+		SET directory_name=#{directoryName},file_name=#{fileName},file_size=#{fileSize},
+			file_content_type=#{fileContentType},file_data=#{fileData}
+		WHERE film_id=#{filmId}
+	</update>
+
+	<!-- 작성자 : 김대영 -->
+	<delete id="deleteFile" parameterType="String">
+		DELETE 
+		FROM upload_file
+		WHERE film_id=#{filmId}
+	</delete>
+
+</mapper>

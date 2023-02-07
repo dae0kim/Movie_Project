@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/*영화정보 담긴 컨테이너
+  포스터, 제목, 별점정보등 담겨있음
+*/
+.film_info_container {
+	display: grid;
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background-color: whitesmoke;
+	grid-auto-rows: minmax(200px, auto); 
+	padding : 10px;
+}
+
+#title_name {
+	font-size: 25px;
+	font-weight: 1000;
+}
+
+#poster {
+	grid-column-start: 1;
+	grid-column-end: 1;
+	grid-row-start: 1;
+	grid-row: 1/span 2;
+	width: 300px;
+	height: 390px;
+	left: 312px;
+	top: 30px;
+	box-sizing: border-box;
+	background: transparent;
+}
+
+#poster img {
+    width: 265px;
+    height: 390px;
+	display: block;
+	object-fit: fill;
+}
+
+#film_info {
+	grid-column-start: 2;
+	grid-column-end: 2;
+	grid-row-start: 2;
+	grid-row-end: 1;
+	display: flex;
+	width: 300px;
+	height: 100px;
+	box-sizing: border-box;
+	background: transparent;
+	flex-direction: column;
+}
+
+#review_count {
+	grid-column-start: 4;
+	grid-column-end: 4;
+	grid-row-start: 1;
+	grid-row-end: 1;
+	display: flex;
+	width: 150px;
+	height: 100px;
+	box-sizing: border-box;
+	background: transparent;
+	flex-direction: column;
+}
+
+#star_avg {
+	grid-column-start: 3;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 1;
+	display: flex;
+	width: 150px;
+	height: 100px;
+	box-sizing: border-box;
+	background: transparent;
+	flex-direction: column;
+}
+
+#summary {
+	grid-column: 2/span 3;
+	grid-row: 2/span 1;
+	display: flex;
+	width: auto;
+	height: auto !important;
+	box-sizing: border-box;
+	background: transparent;
+	flex-direction: column;
+}
+/*영화정보 컨테이너 끝*/
+
+
+
+#reviewtable{
+	display: flex;
+	width: 100%;
+	height: auto;
+}
+
+
+
+/*리뷰 인서트창 콘테이너*/
+.review_insert_container {
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background-color: whitesmoke;
+	place-items: center;
+}
+
+#title_name {
+	display: block;
+	flex-wrap: wrap !important;
+}
+
+button {
+	margin: 20px;
+}
+
+.w-btn {
+	position: relative;
+	border: none;
+	display: inline-block;
+	padding: 15px 30px;
+	border-radius: 15px;
+	font-family: "paybooc-Light", sans-serif;
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-outline {
+	position: relative;
+	padding: 10px 10px;
+	border-radius: 15px;
+	font-family: "paybooc-Light", sans-serif;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	font-weight: 600;
+	transition: 0.25s;
+}
+
+.w-btn-indigo {
+	background-color: aliceblue;
+	color: #1e6b7b;
+}
+
+.w-btn-indigo-outline {
+	border: 3px solid aliceblue;
+	color: #1e6b7b;
+}
+
+
+table{
+  border-collapse: collapse;	
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px; 
+  text-align: center;
+}
+
+tr:hover {background-color: FloralWhite;}

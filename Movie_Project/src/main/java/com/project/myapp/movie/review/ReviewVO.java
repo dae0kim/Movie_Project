@@ -1,21 +1,27 @@
 package com.project.myapp.movie.review;
 
-import java.sql.Date;
-
 public class ReviewVO {
-	private int reviewId;
+	private String reviewId;
 	private String reviewContent;
 	private String starScore;
-	private Date reviewDate;
+	private String reviewDate;
 	private String reviewStatus;
-	private int likeCount;
-	private int memberId;
-	private int filmId;
+	private String likeCount;
+	private String memberId;
+	private String filmId;
 	
-	public int getReviewId() {
+	// 추가 : 리뷰카운트 실시간 업데이트 하려고
+	// 작성자 : 손일형
+	private String reviewLikeId;			// 리뷰 좋아요 id
+	
+	// 추가 : 리뷰리스트 JOIN문에서 닉네임 출력위해 추가함
+	// 작성자 : 손일형
+	private String nickname;				// 닉네임
+	
+	public String getReviewId() {
 		return reviewId;
 	}
-	public void setReviewId(int reviewId) {
+	public void setReviewId(String reviewId) {
 		this.reviewId = reviewId;
 	}
 	public String getReviewContent() {
@@ -30,10 +36,10 @@ public class ReviewVO {
 	public void setStarScore(String starScore) {
 		this.starScore = starScore;
 	}
-	public Date getReviewDate() {
+	public String getReviewDate() {
 		return reviewDate;
 	}
-	public void setReviewDate(Date reviewDate) {
+	public void setReviewDate(String reviewDate) {
 		this.reviewDate = reviewDate;
 	}
 	public String getReviewStatus() {
@@ -42,33 +48,47 @@ public class ReviewVO {
 	public void setReviewStatus(String reviewStatus) {
 		this.reviewStatus = reviewStatus;
 	}
-	public int getLikeCount() {
+	public String getLikeCount() {
 		return likeCount;
 	}
-	public void setLikeCount(int likeCount) {
+	public void setLikeCount(String likeCount) {
 		this.likeCount = likeCount;
 	}
-	public int getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(int memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	public int getFilmId() {
+	public String getFilmId() {
 		return filmId;
 	}
-	public void setFilmId(int filmId) {
+	public void setFilmId(String filmId) {
 		this.filmId = filmId;
 	}
-
-	ReviewVO(){}
+	
+	public String getReviewLikeId() {
+		return reviewLikeId;
+	}
+	public void setReviewLikeId(String reviewLikeId) {
+		this.reviewLikeId = reviewLikeId;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	
 	@Override
 	public String toString() {
 		return "ReviewVO [reviewId=" + reviewId + ", reviewContent=" + reviewContent + ", starScore=" + starScore
 				+ ", reviewDate=" + reviewDate + ", reviewStatus=" + reviewStatus + ", likeCount=" + likeCount
-				+ ", memberId=" + memberId + ", filmId=" + filmId + "]";
+				+ ", memberId=" + memberId + ", filmId=" + filmId + ", reviewLikeId=" + reviewLikeId + ", nickname="
+				+ nickname + "]";
 	}
+	ReviewVO(){}
 	
+
 	
 }

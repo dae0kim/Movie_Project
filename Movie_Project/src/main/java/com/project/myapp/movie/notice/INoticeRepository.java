@@ -4,18 +4,18 @@ import java.util.List;
 
 public interface INoticeRepository {
 	/*
-	 * 사용자 + 관리자 공통기능
+	 * <사용자 + 관리자>
 	 * - 공지사항 리스트 출력
 	 * - 공지사항 상세정보 출력
 	 * 
-	 * 사용자
+	 * <사용자>
 	 * 1. 공지사항 페이지로 이동
 	 *  - 메인에서 공지사항 버튼 누르면 작성된 공지글 리스트 출력
 	 *  
 	 * 2. 공지사항 읽기
 	 *  - 게시글 클릭하면 해당 공지사항의 세부정보 확인가능
 	 *  
-	 * 관리자
+	 * <관리자>
 	 * 1. 공지사항 리스트 출력
 	 *  - 공지사항 리스트형식으로 출력
 	 *  
@@ -32,20 +32,19 @@ public interface INoticeRepository {
 	 * 
 	 * */
 	
-	// 사용자 + 관리자 공통기능
+	// -----------------<사용자 + 관리자>-----------------
 	// 공지사항 리스트 출력
 	List<NoticeVO> getNoticeList();
 	// 공지사항 상세 정보 출력
-	NoticeVO getNoticeInfo(int noticeId);
+	NoticeVO getNoticeInfo(String noticeId);
 	
 	
-	
-	// 관리자
+	// -----------------<관리자>-----------------
 	// 공지사항 작성
 	void insertNotice(NoticeVO notice);
 	// 공지사항 수정
 	void updateNotice(NoticeVO notice);
 	// 공지사항 삭제
-	void deleteNotice(NoticeVO notice);
+	void deleteNotice(String noticeId);
 	
 }

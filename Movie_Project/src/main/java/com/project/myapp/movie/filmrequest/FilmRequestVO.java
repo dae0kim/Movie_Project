@@ -1,18 +1,16 @@
 package com.project.myapp.movie.filmrequest;
 
-import java.sql.Date;
-
 public class FilmRequestVO {
-	private int filmRequestId;
+	private String filmRequestId;
 	private String requestTitle;
-	private Date requestDate;
+	private String requestDate;
 	private String requestStatus;
-	private int memberId;
+	private String memberId;
 	
-	public int getFilmRequestId() {
+	public String getFilmRequestId() {
 		return filmRequestId;
 	}
-	public void setFilmRequestId(int filmRequestId) {
+	public void setFilmRequestId(String filmRequestId) {
 		this.filmRequestId = filmRequestId;
 	}
 	public String getRequestTitle() {
@@ -21,10 +19,10 @@ public class FilmRequestVO {
 	public void setRequestTitle(String requestTitle) {
 		this.requestTitle = requestTitle;
 	}
-	public Date getRequestDate() {
+	public String getRequestDate() {
 		return requestDate;
 	}
-	public void setRequestDate(Date requestDate) {
+	public void setRequestDate(String requestDate) {
 		this.requestDate = requestDate;
 	}
 	public String getRequestStatus() {
@@ -33,21 +31,19 @@ public class FilmRequestVO {
 	public void setRequestStatus(String requestStatus) {
 		this.requestStatus = requestStatus;
 	}
-	public int getMemberId() {
+	public String getMemberId() {
 		return memberId;
 	}
-	public void setMemberId(int memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 	
 	FilmRequestVO(){}
-	
 	@Override
 	public String toString() {
 		return "FilmRequestVO [filmRequestId=" + filmRequestId + ", requestTitle=" + requestTitle + ", requestDate="
 				+ requestDate + ", requestStatus=" + requestStatus + ", memberId=" + memberId + "]";
 	}
-	
 	
 	
 }

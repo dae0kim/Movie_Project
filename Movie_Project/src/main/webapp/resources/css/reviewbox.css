@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+.reviewhead {
+	display: flex;
+	border-bottom: 1px solid rgb(229, 229, 229);
+	overflow: hidden;
+	align-items: center;
+	margin: 10px;
+}
+
+.nickname {
+	flex: 1 1 0%;
+	font-size: 17px;
+	font-weight: 400;
+	letter-spacing: -0.7px;
+	line-height: 22px;
+	overflow: hidden;
+	padding: 10px;
+}
+
+.starscore {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	background: rgb(255, 255, 255);
+	color: rgb(74, 74, 74);
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: -0.3px;
+	line-height: 19px;
+	box-sizing: border-box;
+	min-width: 55px;
+	height: 26px;
+	padding: 0px 8px;
+	border: 1px solid rgb(234, 234, 234);
+	border-radius: 13px;
+	margin: 0;
+	justify-content: space-around;
+}
+
+.reviewbody {
+	position: relative;
+	margin: 12px 0px 15px;
+	height: auto;
+	margin: 10px;
+}
+
+.reviewfooter {
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	color: rgb(120, 120, 120);
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: -0.3px;
+	line-height: 19px;
+	height: 44px;
+	border-top: 1px solid rgb(229, 229, 229);
+	border-bottom: 1px solid rgb(229, 229, 229);
+	overflow: hidden;
+	justify-content: space-between;
+	align-items: center;
+	margin: 20px;
+}
+
+#btn_toggle {
+	font-size: 14px;
+	padding: 10px 15px;
+	border: 1px solid #ddd;
+	background-color: #0a76b7;
+	border-radius: 5px;
+	color: #fff;
+	font-weight: bold;
+}
+
+#Toggle {
+	font-size: 14px;
+	color: #666;
+}
+
+.test {
+	border: 1px solid rgb(1, 1, 1);
+	margin: 30px;
+	width: 940px;
+}
