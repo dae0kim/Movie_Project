@@ -17,7 +17,8 @@
 				</div>
 				<div class="loginBtn">
 					
-					<input type="button" id="findemail_btn" value="아이디 찾기" />				
+					<!-- <input type="button" id="findemail_btn" value="아이디 찾기" />				 -->
+					<a id="findemail_btn">아이디 찾기</a>	
 				</div>
 			</div>
 			<div id="email_result" hidden="true">

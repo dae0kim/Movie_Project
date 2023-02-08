@@ -20,8 +20,9 @@
 					<input type="tel" id="phoneNumber_changepw" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="012-3456-7890" required/>			
 				</div>
 				<div >					
-					<input type="button" id="changepwcheck" value="확인" />	
-					<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소1</a>			
+					<!-- <input type="button" id="changepwcheck" value="확인" /> -->
+					<a id="changepwcheck">확인</a>	
+					<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>			
 				</div>
 			</div>
 			
@@ -31,18 +32,18 @@
 				<input id="password_change_chk" title="비밀번호 재입력 확인란" placeholder="비밀번호 재입력" type="password" value="">					
 				<input type="hidden" id="matchEmail2" value="">
 				<a id="changepw_btn">비밀번호 변경</a>    
-				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소2</a>  
+				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>  
 			</div>
 			
 			<div id="changepwcheck_fail" hidden="true">
 				<label>일치하는 회원 정보가 없습니다.</label>	
-				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">돌아가기3</a>		
+				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">돌아가기</a>		
 			</div>
 			
 			<!-- 비밀번호 변경 결과 출력 -->
 			<div id="changepw_result" hidden="true">
 				<label id="changepw_Msg"></label>
-				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">확인4</a>			
+				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">확인</a>			
 			</div>
 		</form>
     </div>

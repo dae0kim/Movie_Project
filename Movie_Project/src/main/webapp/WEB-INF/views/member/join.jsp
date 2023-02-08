@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 	<div id="join_modal" class="modal">
-		    <div class="modal_close"><a href="#">close</a></div>
+		    <!-- <div class="modal_close"><a href="#">close</a></div> -->
 		    <div>	        
        			<div class="title1">
 					<p class="title1_content">회원가입</p>
 				</div>
 
-				<form action="<c:url value='/member/join'/>" method="post" name="joinfrm"> 					
+				<form action="<c:url value='/member/join'/>" method="post" id="join_form" name="joinfrm"> 					
 					<div>
 						<div>
 							<label> 이메일</label>
@@ -14,17 +14,17 @@
 							<label class="ChkLabel" id="emailMsg"></label>						
 							<input id="email_reg_check" type="hidden" value="false">
 							<input id="email_overlap_check" type="hidden" value="false">
-						</div>											
-						<div> 
+						</div>										
+						<div>
 							<label >비밀번호</label>
-							<input name="password" id="password"  type="password" size="15"  required>
+							<input name="password" id="password"  type="password" size="15" oninput="passwordChk()" required>
 						</div>						
 						<div>
 							<label >비밀번호 확인</label>
 							<input name="pwchk" id="pwchk"  type="password" size="15" oninput="passwordChk()" required>
 							<label class="ChkLabel" id="pwchkMsg"></label>							
 							<input id="pwchk2" type="hidden" value="false">
-						</div>												
+						</div>									
 						<div>
 							<label>닉네임</label>
 							<input type="text" id="nickname" name="nickname" size="20" placeholder="닉네임" required>						
@@ -38,7 +38,8 @@
 						<div>
 							<label>연락처</label>
 							<input id="phoneNumber_join" name="phoneNumber" type="tel" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="012-3456-7890" required/>
-							<label class="ChkLabel" id="phoneNumber_msg"></label>		
+							<label class="ChkLabel" id="phoneNumber_msg"></label>	
+							<input id="phoneNumber_overlap_check" type="hidden" value="false">	
 							
 							<span class="validity"></span>
 						</div>
@@ -86,9 +87,12 @@
 
 						<div>			
 						
-							<input type="submit" value="확인" onClick="location.href='#name2'">
-							<input type="reset" value="취소">
-							<a href="#close" rel="modal:close"></a>						
+							
+							<input type="submit" value="가입하기"  onclick="join_btn_action()" >
+							
+							
+							<a href="#close" rel="modal:close"><input type="reset" value="취소"></a>
+													
 						</div>						
 					</div>							
 				</form>	        
@@ -102,12 +106,12 @@
 			function passwordChk(){
 				if($('#pwchk').val() != '' ){
 					if($('#password').val() == $('#pwchk').val()){
-						$('#pwchkMsg').text("비밀번호가 일치합니다.");
-						$('#pwchkMsg').css("color", "green");
+						$('#pwchkMsg').text("비밀번호가 일치합니다.").css("color", "green");
 						$('#pwchk2').val("true");
 					} else {
-						$('#pwchkMsg').text("비밀번호가 일치하지 않습니다.");
-						$('#pwchkMsg').css("color", "red");						
+						//$('#pwchkMsg').focus();
+						$('#pwchkMsg').text("비밀번호가 일치하지 않습니다.").css("color", "red");
+						$('#pwchk2').val("false");
 					}
 				}
 			}//end passwordChk
@@ -123,10 +127,10 @@
  
  				if ($('#email').val() == ''){
  					$('#emailMsg').text("이메일을 입력해 주세요.").css("color", "red");
-					$('#email').focus();
+					//$('#email').focus();
  				} else if (!reg_email.test(email)){
  					$('#emailMsg').text("잘못된 이메일 형식입니다.").css("color", "red");
-					$('#email').focus();
+					//$('#email').focus();
  				} else if(reg_email.test(email)) {	//이메일 올바른 형식일 경우
  					$('#email_reg_check').val("true");
  					$('#emailMsg').text("굳 이메일 형식입니다.").css("color", "green");
@@ -142,13 +146,12 @@
 							success: function(data){
 								console.log(data);
 								if(data == 'ok'){
-									$('#emailMsg').text("사용 가능한 Email입니다.");	// 사용 가능 알림메세지
-									$('#emailMsg').css("color", "green");
-									$('#emailChk1').val("true");
+									$('#emailMsg').text("사용 가능한 Email입니다.").css("color", "green");
+									$('#email_overlap_check').val("true");
 								} else {
-									$('#emailMsg').text("이미 가입된 Email입니다.");	// 사용 가능 알림메세지
-									$('#emailMsg').css("color", "red");
-									$('#email').focus();
+									$('#emailMsg').text("이미 가입된 Email입니다.").css("color", "red");
+									$('#email_overlap_check').val("false");
+									//$('#email').focus();
 								}
 							}, //end success
 							error:function(){
@@ -177,8 +180,8 @@
 								$('#nickname_overlap_check').val("true");
 							} else {
 								$('#nicknameMsg').text("중복된 닉네임입니다.").css("color", "red");	// 사용 가능 알림메세지
-
-								$('#nickname').focus();
+								$('#nickname_overlap_check').val("false");
+								//$('#nickname').focus();
 							}
 						}, //end success
 						error:function(){
@@ -202,9 +205,11 @@
 							console.log(data);
 							if(data == 'ok'){
 								$('#phoneNumber_msg').text("사용 가능한 번호입니다.").css("color", "green");	// 사용 가능 알림메세지
+								$('#phoneNumber_overlap_check').val("true");
 							} else {
 								$('#phoneNumber_msg').text("이미 가입된 회원입니다.").css("color", "red");	
-								$('#phoneNumber_join').focus();
+								$('#phoneNumber_overlap_check').val("false");
+								//$('#phoneNumber_join').focus();
 							}
 						}, //end success
 						error:function(){
@@ -215,6 +220,45 @@
 			</script>
 			
 			
+			<%-- <form id ="insertForm" action = "<c:url value='/insert'/>" method="post"   onsubmit="return insertMember()" enctype="multipart/form-data" class="form-floating"> --%>
+			
+			
+			<script>
+			function join_btn_action(){
+				  $('#join_form').off("submit").on("submit", function(){	// 현재의 submit 이벤트 핸들러를 제거하고 새로 생성하여 function 등록
+				    var email_overlap_check = $('#email_overlap_check').val();  
+				    var pwchk2 = $('#pwchk2').val();  
+				 	var nickname_overlap_check = $('#nickname_overlap_check').val();         
+				    var phoneNumber_overlap_check = $('#phoneNumber_overlap_check').val();
+				    				    
+				    if(email_overlap_check == 'false'){   
+				    	alert("중복되지 않은 이메일을 입력해주세요.");
+					    $('#email').focus(); 
+				    	
+				    	return false;	
+					                				     				    
+				    }else if(pwchk2 == 'false'){     
+				    	alert("입력한 비밀번호를 다시 확인해주세요.");
+				      	$('#pwchk').focus();  
+				    	
+				    	return false;	
+				      	             		      	
+				    }else if(nickname_overlap_check == 'false'){
+				    	alert("중복되지 않은 닉네임을 선택해주세요.");
+					    $('#nickname').focus();
+				    	
+				    	return false;
+				    	
+				    }else if(phoneNumber_overlap_check == 'false'){
+				    	alert("이미 가입된 휴대폰 번호입니다.");
+					    $('#phoneNumber_join').focus();	
+				    	
+				    	return false;	
+				    		
+				    }
+				  });
+				}			
+			</script>
 			
 			
 			

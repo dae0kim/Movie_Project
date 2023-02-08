@@ -19,8 +19,7 @@
 							<input id="pw_login_overlap_check" type="hidden" value="false">
 						</div>
 						<div class="loginBtn">
-							<input type="submit" id="login_btn" value="로그인" />
-														
+							<input type="button" id="login_btn" value="로그인" />							
 							<p><a href="#findemail_modal" rel="modal:open">이메일 찾기</a></p>																							
 							<p><a href="#changepw" rel="modal:open">비밀번호를 잊으셨나요?</a></p>					
 						</div>
@@ -45,8 +44,7 @@
 			var member_email = $('#member_email').val();		
 		
 			if ($('#member_email').val() == ''){
-				$('#email_login_msg').text("이메일을 입력해 주세요.").css("color", "purple");
-				$('#member_email').focus();				
+				$('#email_login_msg').text("이메일을 입력해 주세요.").css("color", "purple");				
 			} else if(!reg_email.test(member_email)){
 				$('#email_login_msg').text("잘못된 이메일 형식입니다.").css("color", "purple");
 				$('#member_email').focus();					
@@ -62,7 +60,7 @@
 			var member_pw = $('#member_pw').val();
 			if($('#member_pw').val() == ''){
 				$('#pw_login_msg').text("비밀번호를 입력해 주세요.").css("color", "purple");						
-				$('#member_pw').focus();
+				//$('#member_pw').focus();
 			} else {
 				$('#pw_login_msg').text("");
 				$('#pw_login_overlap_check').val("true");
@@ -96,11 +94,20 @@
 					error:function(){
 						alert("로그인 실패");
 					}//end error														
-				})//end 로그인 실행 ajax	
-			
-			}//end if
+				})//end 로그인 실행 ajax				
+			} else {
+				alert("이메일 또는 비밀번호를 확인해주세요.");
+			}
 		})//end login_btn
 			
+		$("#member_pw").on('keypress', function(event) {
+	        if (event.which == 13) {
+	            $("#login_btn").click();
+	        }
+	        console.log(event);
+	    });
 	
+
+
 		</script>
 
