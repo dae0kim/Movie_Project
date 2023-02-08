@@ -1,0 +1,321 @@
+@charset "UTF-8";
+
+@media (min-width: 719px){
+	.modal{
+    position: relative;
+    vertical-align: middle;
+    text-align: left;
+    width: 375px;
+    height: auto;
+    min-height: 540px;
+    border-radius: 6px;
+/*     overflow: auto; */
+	}	
+}
+
+.modal{
+    background: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 12%) 0px 0px 6px 0px;
+}
+
+.modal a.close-modal{
+	top: 17.5px;
+    right: -12.5px;
+    left: 324px;
+}
+
+#changepwcheck_form{
+	margin-top: 50px;
+}
+
+#changepwcheck_result{
+	margin-top: 50px;
+}
+
+#changepw_result{
+	margin-top: 50px;
+}
+
+#findemail_form{
+	margin-top: 50px;
+}
+
+#email_result{
+	margin-top: 50px;
+}
+
+.login_modal_body{
+	padding: 32px 0px 16px;
+}
+
+.login_logo_header{
+	text-align: center;
+    margin: 0px 0px 14px;
+    overflow: hidden;
+}
+
+.login_logo{
+	display: inline-block;
+    width: 198px;
+    height: 38.03px;
+}
+
+.title1_content{
+	font-size: 17px;
+    letter-spacing: -0.5px;
+    line-height: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin: 24px 0px 20px;
+}
+
+.phonenum_div{
+	margin-top: 20px;
+}
+
+#findemail_btn{
+	text-decoration-line: none;
+	padding: 10px 15px;
+    margin: 20px 0;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    background : #DC143C; 
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.confirm_member_btn{
+	text-decoration-line: none;
+	padding: 10px 15px;
+    margin: 20px 0;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    background : #DC143C; 
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+	
+}
+
+.login_input_sub{
+	margin: 0px 20px;
+}
+
+.id_input{
+	padding: 4px 0px;
+    overflow: hidden;
+}
+
+.ChkLabel{
+	display: flex;
+    
+}
+
+.login_btn{
+	padding: 0px;
+    border: none;
+    cursor: pointer;
+    background: #DC143C;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 22px;
+    width: 100%;
+    height: 44px;
+    border-radius: 6px;
+    margin: 16px 0px 0px;
+}
+
+.loss_email{
+	font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 20px;
+    text-align: center;
+    margin: 20px 0px 14px;
+}
+
+.loss_email a{
+	text-decoration-line: none;
+	background: none;
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+    color: #DC143C;
+}
+
+.loss_pw{
+	font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 20px;
+    color: rgb(140, 140, 140);
+    text-align: center;
+}
+
+.loss_pw a{
+	text-decoration-line: none;
+	background: none;
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+    color: #DC143C;
+}
+
+input[type=text] {
+	display: flex;
+    align-items: center;
+    background: rgb(245, 245, 245);
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding: 0px 12px;
+    border-radius: 6px;
+    border : none;
+    margin-top :5px;
+}
+
+input[type=password] {
+	display: flex;
+    align-items: center;
+    background: rgb(245, 245, 245);
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding: 0px 12px;
+    border-radius: 6px;
+    border : none;
+}
+
+input[type=email] {
+	display: flex;
+    align-items: center;
+    background: rgb(245, 245, 245);
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding: 0px 12px;
+    border-radius: 6px;
+    border : none;
+}
+
+.member_pw{
+	margin-bottom : 3px;
+}
+
+button {
+	cursor:pointer;
+	background: inherit ; 
+	border:none; 
+	box-shadow:none; 
+	border-radius:0; 
+	padding:0; 
+	overflow:visible; 
+}
+
+#changepwcheck{
+	padding: 0px;
+    border: none;
+    cursor: pointer;
+    background: #DC143C;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 22px;
+    width: 100%;
+    height: 44px;
+    border-radius: 6px;
+    margin: 20px 0px 0px;
+}
+
+
+.close_btn{
+	text-decoration-line: none;
+	padding: 15px 10px;
+    margin: 10px 0;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    border: 1px solid #ddd;
+    text-align: center;
+    background : #DC143C; 
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.close_btn_pw{
+	text-decoration-line: none;
+	padding: 15px 10px;
+    margin: 30px 0 0;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    border: 1px solid #ddd;
+    text-align: center;
+    background : #DC143C; 
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/*--------------------회원가입-------------------*/
+
+.join_form_input{
+	margin-top:5px;
+}
+
+.birthdate_input{
+	margin-top: 30px;
+}
+
+.gender_input{
+	margin-top: 20px;
+}
+
+.input_confirm_btn, .reset_btn{
+	padding: 5px 10px;
+    margin: 2px 0;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #DC143C;
+    text-align: center;
+    color: #DC143C;
+}
+
+.input_confirm_btn:hover, .reset_btn:hover{
+	color: #fff;
+	background: #DC143C;
+}
+
+
+.confirm_reset_btn{
+	margin-top:20px;
+	text-align: center;
+}
+
+a{
+	cursor: pointer;
+}

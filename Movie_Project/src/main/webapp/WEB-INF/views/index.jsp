@@ -2,10 +2,9 @@
     pageEncoding="UTF-8"%>
 
 <%@include file="header.jsp" %>
-<div class="wrapper">
-    		
-			<div class="box" id="film_list_main_star">
-				<h2>평점 높은순</h2>
+<div class="wrapper">	
+			<div class="index_box" id="film_list_main_star">
+				<h2 class="index_title_font">평점 높은순</h2>
 	        <div id="slideShow">
 		    	<ul id="slides_main_star" class="slides">
 	            	<c:forEach var="filmListByStar" items="${filmListByStar}">
@@ -28,14 +27,16 @@
 									</c:if>
 									</a>
 
-			              		</div>              	
-			              		<div style="text-align:center;">
+			              		</div>  
+			              		<div class="index_info_full">            	
+			              		<div class="index_info">
 					             	<span class="film_title">${filmListByStar.filmTitle}</span>
-			              		</div>	
-			              		<div style="text-align:center;">
-					             	<span>평균★
+			              			</div>
+								<div class="average_star">
+					             	<span class="average_star_print">평균★
 					             	<fmt:formatNumber value="${filmListByStar.starAverage}" pattern=".00" /></span>
-			              		</div>	
+								</div>
+								</div>
 			              	</div>
 			        	</li>
 	            	</c:forEach>
@@ -48,8 +49,8 @@
 		        </div>
 		        
 		
-	      <div class="box" id="film_list_main_review">
-			<h2>리뷰 많은순</h2>
+	      <div class="many_review_box" id="film_list_main_review">
+			<h2 class="index_title_font">리뷰 많은순</h2>
 	        <div id="slideShow">
 		    	<ul id="slides_main_review" class="slides">
 	            	<c:forEach var="filmListByReview" items="${filmListByReview}">
@@ -73,19 +74,21 @@
 									</c:if>
 									</a>
 
-			              		</div>              	
-			              		<div style="text-align:center;">
+			              		</div> 
+			              		<div class="index_info_full">                	
+			              		<div class="index_info">
 					             	<span class="film_title">${filmListByReview.filmTitle}</span>
 			              		</div>	
-			              		<div style="text-align:center;">
-					             	<span>평균★
-					             	<fmt:formatNumber value="${filmListByReview.starAverage}" pattern=".00" /></span>
+			              		<div class="average_star">
+					             	<span class="average_star_print">평균★
+					             	 	<fmt:formatNumber value="${filmListByReview.starAverage}" pattern=".00" /></span>
 			              		</div>	
+			              		</div>
 			              	</div>
 			        	</li>
 	            	</c:forEach>
 		    	</ul>
-				  <p class="controller">
+ 		    	<p class="controller">
 				  	<span id="prev_main_review" class="prev">&lang;</span>
 	        		<span id="next_main_review" class="next">&rang;</span>
 				  </p>
@@ -95,8 +98,8 @@
         
 	    <c:choose>
     	<c:when test="${not empty loginUser}">
-	        <div class="box" id="film_list_main_user_genre">
-			<h2>${loginUser.nickname}님의 선호 장르 영화</h2>
+	        <div class="private_like_box" id="film_list_main_user_genre">
+			<h2 class="index_title_font"><span class="my_nickname">${loginUser.nickname}</span>님의 선호 장르 영화</h2>
 	        <div id="slideShow">
 		    	<ul id="slides_main_genre" class="slides">
 	            	<c:forEach var="filmListByGenre" items="${filmListByGenre}">
@@ -118,14 +121,16 @@
 											</a>
 										</c:otherwise>
 									</c:choose>
-			              		</div>              	
-			              		<div style="text-align:center;">
+			              		</div>     
+			              		<div class="index_info_full">          	
+			              		<div class="index_info">
 					             	<span class="film_title">${filmListByGenre.filmTitle}</span>
 			              		</div>	
-			              		<div style="text-align:center;">
-					             	<span>평균★
+			              		<div class="average_star">
+					             	<span class="average_star_print">평균★
 					             	<fmt:formatNumber value="${filmListByGenre.starAverage}" pattern=".00" /></span>
 			              		</div>	
+			              		</div>
 			              	</div>
 			        	</li>
 	            	</c:forEach>
@@ -135,7 +140,7 @@
 	        		<span id="next_main_genre" class="next">&rang;</span>
 				  </p>
 		        </div>
-		        </div>	            
+		        </div>            
 	</c:when>
 	</c:choose>
 </div>

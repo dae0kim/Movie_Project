@@ -1,43 +1,76 @@
 @charset "UTF-8";
 
-.wrapper {
-  background-color: whitesmoke;
-  width: 1100px;
-  height: auto;
-  margin: auto;
-  top: 0;
-  bottom: 0;
-  padding: 80px 20px 20px 20px;
-}
-
 .box {
   display: flex !important;
-  color: black;
-  background-color: whitesmoke;
   margin: 10px;
   padding: 3px 10px;
   margin: 20px;
   align-items: flex-start;
   flex-direction: column;
-  border: 1px solid rgb(0, 0, 0);
+}
+
+.section_layout{
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background: rgb(255, 255, 255);
+	grid-auto-rows: minmax(12px, auto); 
+	padding : 10px;
+	border: 1px solid rgb(227, 227, 227);
+	align-items: center;
+}
+
+#day_hour_min_msg{
+	margin-bottom: 20px;
+}
+
+.total_time_section{
+	margin: 10px 20px;
+    align-items: end;
+    white-space: normal;
+    background: rgb(255, 255, 255);
+    grid-auto-rows: minmax(12px, auto);
+    padding: 10px;
+    border: 1px solid rgb(227, 227, 227);
+    align-items: center;
+}
+
+.total_time_text{
+	text-align: center; 
+	margin: 10px"
+}
+
+.myfilm_list_box{
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background: rgb(255, 255, 255);
+	grid-auto-rows: minmax(12px, auto); 
+	padding : 10px;
+	border: 1px solid rgb(227, 227, 227);
+	align-items: center;
 }
 
 /* ------------------이미지 슬라이더-------------------- */
 /* 초기화 */
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 .image_list{
   list-style-type: none;
   margin-top:40px;
 }
 
+
 .image_list a img{
   width:210px;
   height:300px;
+  border-radius: 2%;
+  overflow: hidden;
+  border: 1px solid #eae9e8;
+  
 }
 
 /* 보여줄 구간의 높이와 넓이 설정 */
@@ -45,7 +78,7 @@
   width: 1000px;
   height: 400px;
   position: relative;
-  margin: 50px 30px 50px 30px;
+  margin: 10px 20px 20px 30px;
   overflow: hidden;   
   /*리스트 형식으로 이미지를 일렬로 
   정렬할 것이기 때문에, 500px 밖으로 튀어 나간 이미지들은
@@ -118,5 +151,285 @@
 }
 
 .wishlist_deletebtn{
-	margin: 10px;
+	padding: 5px 10px;
+    margin: 2px 0;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+
+}
+
+.wishlist_deletebtn :hover{
+	color : #DC143C; 
+	border: 1px solid #DC143C;
+}
+
+.myunder_line{
+	border: 0;
+    border-bottom: 1px solid #f0f0f0;
+    margin-top:10px;
+/*     padding-top: 10px; */
+}
+
+.timeunder_line{
+	border: 0;
+    border-bottom: 1px solid #f0f0f0;
+	padding-top: 30px; 
+}
+
+.myTime_font{
+	color: #787878;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 16px;
+    line-height: 19px;
+}
+
+.day_hour_min_msg{
+	margin : 10px;
+}
+
+.mytime_title_font{
+	position: absolute;
+    float: left;
+    color: #000;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    line-height: 28px;
+    margin: 8px 0;
+    margin-top: 10px;
+    top: 10%;
+}
+
+.mypage_title_font{
+    float: left;
+    color: rgb(0, 0, 0);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    margin-bottom: 10px;
+}
+
+.mypage_title_font2{
+	margin :20px;
+	float: left;
+    color: rgb(0, 0, 0);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    margin-bottom: 10px;
+}
+
+.myfilm_time{
+    margin: 10px;
+    padding: 3px 10px;
+    margin: 20px 0px 0px 20px;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.my_nickname{
+	color: #DC143C
+}
+
+.myfilm_title{
+    color: rgb(41, 42, 50);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 3px;
+}
+
+.myfilmlist_info{
+	text-align:center;
+	
+}
+
+.myfilmlist_info_full{
+	text-align: center;
+    width: calc(100% - 10px);
+    margin: 5px 10px 0 0;
+}
+
+.mystar{
+	color: rgb(116, 116, 123);
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    letter-spacing: 0px;
+    line-height: 14px;
+    height: 15px;
+}
+
+.pencil{
+	position :absolute;
+	left: 136px;
+    top: 1766px;
+}
+
+.upadate_form_container , .request_film_container{
+	margin : 20px;
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background: rgb(255, 255, 255);
+	grid-auto-rows: minmax(12px, auto); 
+	padding : 10px;
+	border: 1px solid rgb(227, 227, 227);
+	align-items: center;
+}
+
+.update_member_title{
+	color: rgb(41, 42, 50);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    line-height: 30px;
+    margin : 20px;
+}
+
+.input_data_full{
+	margin : 30px;
+	width: 50%;
+}
+
+.input_member_data{
+	padding :10px;
+}
+
+input[type=password]{
+	display: flex;
+    align-items: center;
+    background: rgb(245, 245, 245);
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding: 0px 12px;
+    border-radius: 6px;
+    border : none;
+    margin-top: 5px;
+}
+
+input[type=tel]{
+	display: flex;
+    align-items: center;
+    background: rgb(245, 245, 245);
+    box-sizing: border-box;
+    width: 100%;
+    height: 44px;
+    padding: 0px 12px;
+    border-radius: 6px;
+    border : none;
+    margin-top: 5px;
+}
+
+.like_genre_dropdown{
+	margin-top:20px;
+	padding: 10px;
+}
+
+.update_member_btn{
+	text-decoration-line: none;
+	padding: 10px 15px;
+    margin: 20px 0;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    background : #DC143C; 
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.delete_btn{
+	margin-top:20px;
+	color: rgba(0,0,0,0.5);
+}
+
+.input_memeber_title{
+	padding : 10px;
+	margin-bottom: 5px;
+}
+
+/*-------------------------------영화 요청 페이지-----------------------------------------*/
+
+
+.request_film_title, .request_film_notice_div{
+	margin : 20px;
+}
+
+.save_btn, .cancle_btn_film{
+	text-decoration-line: none;
+	padding: 10px 15px;
+	margin-bottom: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    background : #DC143C; 
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.request_film_title{
+	color: #292a32;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.example{
+	color : #DC143C;
+	font-size: 13px;
+	font-weight: 300;
+	letter-spacing: -0.2px;
+	margin-top: -10px;
+}
+
+.request_film_notice{
+	color: #292a32;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.request_film_input{
+	margin : 20px;
+	margin-top : 30px;
+}
+
+.reqeust_film_btn_div{
+	margin-left:20px;
+	margin-top :5px;
 }

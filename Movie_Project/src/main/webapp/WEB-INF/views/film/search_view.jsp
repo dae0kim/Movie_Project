@@ -5,6 +5,7 @@
 
 <!-- 김미리 작성 : 검색결과 페이지 화면 -->
 <body>
+
   <section class="section_layout_search">
   	<section class="content1_layout">
   		<section class ="search_result_contents_full">
@@ -12,6 +13,7 @@
 			<div class="search_result_title_div">
 				<div class="search_result_title">"${search_keyword}"검색결과</div>
 			</div>
+		<div class="search_wrapper">	
 		<div class = "search_result_full"> 
 			<div class="search_result_sub_div">
 			<header class="title_header_second">
@@ -44,7 +46,7 @@
 												<c:set var="filetype" value="${fn:toUpperCase(fn:substring(searchInfoList.fileName, len-4, len))}"/>
 												<c:if test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.PNG')}">
 													<c:url var="imageName" value="/file/${searchInfoList.fileId}"/>
-													<img src="${imageName}" class="img-thumbnail">
+													<img src="${imageName}" class="result_img-thumbnail">
 												</c:if>
 										</a>
 										</div>
@@ -93,7 +95,7 @@
 													<c:set var="filetype" value="${fn:toUpperCase(fn:substring(searchDirector.fileName, len-4, len))}"/>
 													<c:if test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.PNG')}">
 														<c:url var="imageName" value="/file/${searchDirector.fileId}"/>
-														<img src="${imageName}"  class="img-thumbnail">
+														<img src="${imageName}"  class="result_img-thumbnail">
 													</c:if>
 												</a>
 											</div>
@@ -145,7 +147,7 @@
 																	<c:set var="filetype" value="${fn:toUpperCase(fn:substring(searchActor.fileName, len-4, len))}"/>
 																	<c:if test="${(filetype eq '.JPG') or (filetype eq 'JPEG') or (filetype eq '.PNG')}">
 																		<c:url var="imageName" value="/file/${searchActor.fileId}"/>
-																		<img src="${imageName}"  class="img-thumbnail">
+																		<img src="${imageName}"  class="result_img-thumbnail">
 													</c:if>
 													</a>
 												</div>
@@ -172,7 +174,7 @@
 			</div>
 			</div>
 		</div>	
-				
+		</div>
 		</section>
 		</section>	
 		

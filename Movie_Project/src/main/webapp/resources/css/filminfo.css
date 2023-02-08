@@ -9,13 +9,17 @@
 	margin: 10px 20px;
 	align-items: end;
 	white-space: normal;
-	background-color: whitesmoke;
-	grid-auto-rows: minmax(200px, auto); 
+	background: rgb(255, 255, 255);
+	grid-auto-rows: minmax(12px, auto); 
 	padding : 10px;
+	border: 1px solid rgb(227, 227, 227);
+	align-items: center;
+	grid-template-columns: repeat(2, 1fr 2fr);
+/* 	grid-template-rows: 1fr 1.5fr; */
 }
 
 #title_name {
-	font-size: 25px;
+/* 	font-size: 25px; */
 	font-weight: 1000;
 }
 
@@ -24,19 +28,23 @@
 	grid-column-end: 1;
 	grid-row-start: 1;
 	grid-row: 1/span 2;
-	width: 300px;
+	width: 265px;
 	height: 390px;
 	left: 312px;
 	top: 30px;
 	box-sizing: border-box;
 	background: transparent;
+    border-width: 2px;
+    box-shadow: rgb(0 0 0 / 30%) 0px 0px 2px;
 }
 
 #poster img {
-    width: 265px;
-    height: 390px;
-	display: block;
-	object-fit: fill;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    object-fit: cover;
+    transition: opacity 420ms ease 0s;
 }
 
 #film_info {
@@ -45,11 +53,30 @@
 	grid-row-start: 2;
 	grid-row-end: 1;
 	display: flex;
-	width: 300px;
-	height: 100px;
+	width: 310px;
+	height: 120px;
 	box-sizing: border-box;
 	background: transparent;
 	flex-direction: column;
+	margin: 20px 0 0 20px;
+}
+
+.film_title_name{
+	font-size: 40px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 41px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+}
+
+.filminfo_DGC{
+	color: rgb(74, 74, 74);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    margin-top: 65px;
 }
 
 #review_count {
@@ -58,11 +85,21 @@
 	grid-row-start: 1;
 	grid-row-end: 1;
 	display: flex;
-	width: 150px;
-	height: 100px;
+	width: 100px;
+    height: 1px;
 	box-sizing: border-box;
 	background: transparent;
 	flex-direction: column;
+}
+
+.review_print{
+	color: rgb(74, 74, 74);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 24px;
+    margin: 8px 0px;
+    margin-top: 47px;
 }
 
 #star_avg {
@@ -71,12 +108,35 @@
 	grid-row-start: 1;
 	grid-row-end: 1;
 	display: flex;
-	width: 150px;
-	height: 100px;
+	width: 200px;
+    height: 1px;
 	box-sizing: border-box;
 	background: transparent;
 	flex-direction: column;
 }
+
+.average_star_print{
+	color: rgb(248, 139, 8);
+}
+
+.aver_star{
+	color: rgb(74, 74, 74);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 24px;
+    margin: 8px 0px;
+    margin-top: 47px;
+    margin-left: 30px;
+}
+
+/* .review_count_title{ */
+/*     color: rgb(0, 0, 0); */
+/*     font-size: 19px; */
+/*     font-weight: 700; */
+/*     letter-spacing: -0.7px; */
+/* } */
+
 
 #summary {
 	grid-column: 2/span 3;
@@ -87,9 +147,58 @@
 	box-sizing: border-box;
 	background: transparent;
 	flex-direction: column;
+	margin: 20px 0 0 20px;
+/* 	margin-bottom: 60px; */
 }
+
+.summary_title{
+	float: left;
+    color: rgb(0, 0, 0);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    margin-bottom: 10px;
+}
+
+.summary_full{
+/* 	white-space: pre-wrap; */
+    color: rgb(74, 74, 74);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 24px;
+}
+
+
 /*영화정보 컨테이너 끝*/
 
+/*위시리스트 담기*/
+
+.insertwish{
+	margin :0px;
+}
+ 
+.wishlist_div{
+/* 	position: absolute; */
+    top: 442px;
+    right: 669px;
+    margin-top: 10px
+}
+
+.wishlist_btn{
+    margin: 2px 0;
+    padding: 10px 15px; 
+    font-size: 13px; 
+    font-weight: 300; 
+    display: inline-block; 
+	color : #DC143C;
+	border: 1px solid rgb(227, 227, 227);
+}
+
+.wishlist_btn:hover{
+	background : #DC143C;
+	color : #fff;
+}
 
 
 #reviewtable{
@@ -99,8 +208,45 @@
 }
 
 
-
 /*리뷰 인서트창 콘테이너*/
+.review_container {
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background: rgb(255, 255, 255);
+	grid-auto-rows: minmax(50px, auto); 
+	padding : 10px;
+	border: 1px solid rgb(227, 227, 227);
+}
+
+.request_login{
+	margin-left: 20px;
+}
+
+.goto_login_div{
+	text-decoration-line: none;
+	margin-left: 20px;
+}
+
+.goto_login_btn{
+	text-decoration-line: none;
+	padding: 10px 15px;
+    margin: 2px 0;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 0;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    text-align: center;
+    background : #DC143C; 
+    color: #fff;
+    border-radius: 5px;
+    width: 100%;
+}
+
 .review_insert_container {
 	justify-content: flex-start;
 	align-items: flex-end;
@@ -111,13 +257,113 @@
 	place-items: center;
 }
 
+.request_title{
+	margin: 20px;
+	float: left;
+    color: rgb(0, 0, 0);
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.7px;
+    margin-bottom: 10px;
+}
+
+.input_review{
+	text-decoration-line: none;
+    padding: 10px 10px 3px;
+    border-radius: 4px;
+    border-color: #c8c8c8;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #c7c7c7;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #fff;
+    color: black;
+    text-align:center ;
+    width: 40%;
+    align-items:center;
+}
+
+.input_review :hover{
+	color : #DC143C; 
+	border:1px solid #DC143C;
+}
+
+.write_review_box{
+	margin:10px;
+}
+
+.review_btn_toggle{
+	color : #DC143C;
+	background: inherit ; 
+	border:none; 
+	box-shadow:none; 
+	border-radius:0; 
+	padding:0; 
+	overflow:visible;  
+	margin : 20px 0 0 20px;
+}
+
+.btnlike{
+	color : #DC143C;
+	background: inherit ; 
+	border:none; 
+	box-shadow:none; 
+	border-radius:0; 
+	padding:0; 
+	overflow: visible; 
+	cursor:pointer; 
+}
+
 #title_name {
 	display: block;
 	flex-wrap: wrap !important;
 }
 
-button {
+.filminfolistsamegenre{
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background: rgb(255, 255, 255);
+	grid-auto-rows: minmax(12px, auto); 
+	padding : 10px;
+	border: 1px solid rgb(227, 227, 227);
+	align-items: center;
+	
+}
+
+/*리뷰 버튼 클릭 -> 리뷰 작성창*/
+.starScore{
+	justify-content: flex-start;
+	align-items: flex-end;
+	margin: 10px 20px;
+	align-items: end;
+	white-space: normal;
+	background: rgb(255, 255, 255);
+	grid-auto-rows: minmax(12px, auto); 
+	padding : 10px;
+	border: 1px solid rgb(227, 227, 227);
+	align-items: center;
+}
+
+.h4_margin{
+	margin : 10px;
+}
+
+.star_dropbox{
 	margin: 20px;
+}
+
+button {
+/* 	margin: 20px; */
+	cursor:pointer;
+	background: inherit ; 
+	border:none; 
+	box-shadow:none; 
+	border-radius:0; 
+	padding:0; 
+	overflow:visible; 
 }
 
 .w-btn {
@@ -125,8 +371,7 @@ button {
 	border: none;
 	display: inline-block;
 	padding: 15px 30px;
-	border-radius: 15px;
-	font-family: "paybooc-Light", sans-serif;
+	border-radius: 10px;
 	text-decoration: none;
 	font-weight: 600;
 	transition: 0.25s;
@@ -136,7 +381,6 @@ button {
 	position: relative;
 	padding: 10px 10px;
 	border-radius: 15px;
-	font-family: "paybooc-Light", sans-serif;
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 	text-decoration: none;
 	font-weight: 600;
@@ -144,8 +388,8 @@ button {
 }
 
 .w-btn-indigo {
-	background-color: aliceblue;
-	color: #1e6b7b;
+	background-color: #DC143C;
+	color: #fff;
 }
 
 .w-btn-indigo-outline {
@@ -153,6 +397,9 @@ button {
 	color: #1e6b7b;
 }
 
+.reviewcontent{
+	margin : 10px;
+}
 
 table{
   border-collapse: collapse;	

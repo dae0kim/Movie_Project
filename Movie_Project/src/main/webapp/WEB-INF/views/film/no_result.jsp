@@ -15,10 +15,10 @@
 			<div class="no_result_msg">
 				"${search_keyword}"에 관한 결과가 없습니다. 다른 검색어를 입력하세요.
 			</div>
-			<div>			
+			<div class="requestfilm_btn_div">			
 				<c:choose>
 					<c:when test="${not empty loginUser}"> 
-						<button class="common_btn" type="button" onclick="location.href = '<c:url value='/filmrequest/request' />'">영화 추가 요청하기</button>												
+						<button class="request_film" type="button" onclick="location.href = '<c:url value='/filmrequest/request' />'">영화 추가 요청하기</button>												
 					</c:when>
 				</c:choose>
 			</div>

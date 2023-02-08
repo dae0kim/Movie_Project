@@ -17,7 +17,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reviewbox.css">    
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/filminfo.css">    
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css">
-    <%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/search_view.css"> --%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/search_view.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login_modal.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/join.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice.css">
     
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -75,15 +78,20 @@
                             		<li class="common">
 										<c:choose>
 											<c:when test="${not empty  loginUser}"> 
-			                					<li class="new user"><b>${loginUser.nickname}</b>님 안녕하세요!</li> <!-- 로그인 시, 노출 -->			
+<%-- 											<li class="new user"><b>${loginUser.nickname}</b>님 안녕하세요!</li> <!-- 로그인 시, 노출 --> --%>
+<%-- 			                					<li class="new_user"><button class="user_btn" onclick="location.href='<c:url value='/member/mypage/${loginUser.memberId}'/>'"></button></li> <!-- 로그인 시, 노출 -->			 --%>
 			                					<li class="common"><button class="common_btn" onclick="location.href='<c:url value='/member/mypage/${loginUser.memberId}'/>'">마이페이지</button></li>
 												<button class="common_btn" type="button" onclick="location.href = '<c:url value='/member/logout' />'">로그아웃</button>						
 											</c:when>
 											<c:otherwise>
-												<p><a href="#login_modal" rel="modal:open">로그인</a></p>
-												<%@include file="./member/login.jsp" %>						
-												<p><a href="#join_modal" rel="modal:open">회원가입</a></p>
+											<li class= "login_button">
+												<p><a href="#login_modal" rel="modal:open" class="login_a_tag">로그인</a></p>
+												<%@include file="./member/login.jsp" %>
+												</li>
+											<li class="join_button">						
+												<p><a href="#join_modal" rel="modal:open" class="join_btn">회원가입</a></p>
 												<%@include file="./member/join.jsp" %>
+												</li>
 											</c:otherwise>
 										</c:choose>
                             		</li>

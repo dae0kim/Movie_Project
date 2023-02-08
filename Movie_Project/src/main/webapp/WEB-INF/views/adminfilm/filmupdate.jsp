@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/adminpage.css">
 </head>
 <body>
-<a href="<c:url value='/adminfilm/${film.filmId} }'/>">뒤로가기</a><br><br>
+<a href="<c:url value='/adminfilm/${film.filmId}'/>">뒤로가기</a><br><br>
 <h1>영화 정보 수정</h1>
 
 

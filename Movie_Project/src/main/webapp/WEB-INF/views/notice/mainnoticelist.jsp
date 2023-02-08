@@ -5,8 +5,8 @@
 	<%@ include file="../header.jsp" %>
 
 		<div class="wrapper">
-			<h3>공지사항</h3>
-				<table border="1">
+			<h3 class="notice_title">공지사항</h3>
+				<table class="notice_table">
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -14,9 +14,9 @@
 					</tr>
 						<c:forEach var="notice" items="${noticeList}">
 					<tr>
-						<td>${notice.noticeId}</td>
-						<td><a href="<c:url value='/mainnotice/${notice.noticeId}'/>">${notice.noticeTitle}</a></td>
-						<td>${notice.noticeDate}</td>
+						<td class="notice_number">${notice.noticeId}</td>
+						<td><a class="notice_write_title" href="<c:url value='/mainnotice/${notice.noticeId}'/>">${notice.noticeTitle}</a></td>
+						<td class="noticeDate">${notice.noticeDate}</td>
 					</tr>
 				</c:forEach>
 				</table>

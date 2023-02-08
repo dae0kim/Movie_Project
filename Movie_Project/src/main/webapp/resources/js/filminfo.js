@@ -18,7 +18,7 @@
 				success : function(data) {
 					var countlike = data;
 					console.log(data);
-
+					
 					location.reload();
 				}
 			})
@@ -27,6 +27,7 @@
 		$(function() {
 			$("#btn_toggle").click(function() {
 				$("#Toggle").toggle();
+				 
 			});
 		});
 		

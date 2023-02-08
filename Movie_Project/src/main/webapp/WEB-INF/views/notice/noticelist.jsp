@@ -8,8 +8,9 @@
 </head>
 <body>
 <a href="<c:url value='/adminhome'/>">메인으로가기</a><br><br>
-<h3>공지사항</h3>
+<h3 class="notice_title">공지사항</h3>
 <a href="<c:url value='/notice/insert'/>"><input type="button" value="글쓰기"></a>
+<div class="notice_table_div">
 <table border="1">
 <tr>
 	<th>No.</th>
@@ -24,5 +25,6 @@
 </tr>
 </c:forEach>
 </table>
+</div>
 </body>
 </html>
