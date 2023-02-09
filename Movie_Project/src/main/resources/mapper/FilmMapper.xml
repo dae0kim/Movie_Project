@@ -22,7 +22,7 @@
 		       u.file_id AS fileId
 		FROM FILM f JOIN UPLOAD_FILE u
 		ON f.film_id = u.film_id
-		ORDER BY f.film_id ASC
+		ORDER BY f.film_id DESC
 	</select>
 	
 	<!-- 작성자 : 김대영 -->

@@ -19,6 +19,7 @@
 	
 	<select id="getMemberList" resultMap="memberMap">
 		SELECT * FROM MEMBER
+		ORDER BY member_id DESC
 	</select>
 	
 	<!-- 작성자: 이기쁨 -->
