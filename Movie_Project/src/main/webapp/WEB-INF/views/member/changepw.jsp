@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <div id="changepw" class="modal">  
-    <div>
+    <div class="changepwcheck_form">
     		<form>
 			<div class="title1">
 				<p class="title1_content">비밀번호 변경</p>
@@ -19,25 +19,21 @@
 					<label class="input_memeber_title">연락처</label>
 					<input type="tel" id="phoneNumber_changepw" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="012-3456-7890" required/>			
 				</div>
-				<div >					
-					<input type="button" id="changepwcheck" value="확인" />			
-				</div>
-				<div>
-				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>	
+				<div class="check_btn" >					
+					<!-- <input type="button" id="changepwcheck" value="확인" /> -->
+					<a class="close_btn"  id="changepwcheck">확인</a>	
+					<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>			
 				</div>
 			</div>
 			
 			<!-- 회원확인 완료 ->비밀번호 변경 페이지 -->
+			<div class="changepwcheck_form">
 			<div id="changepwcheck_result" hidden="true">
 				<input id="password_change" title="비밀번호 입력란" placeholder="비밀번호" type="password" value="">							
 				<input id="password_change_chk" title="비밀번호 재입력 확인란" placeholder="비밀번호 재입력" type="password" value="">					
 				<input type="hidden" id="matchEmail2" value="">
-				<div>
-				<a id="changepw_btn" class="close_btn_pw">비밀번호 변경</a>   
-				</div> 
-				<div>
+				<a id="changepw_btn" class="close_btn_pw">비밀번호 변경</a>    
 				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>  
-				</div> 
 			</div>
 			
 			<div id="changepwcheck_fail" hidden="true">
@@ -49,6 +45,7 @@
 			<div id="changepw_result" hidden="true">
 				<label id="changepw_Msg"></label>
 				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">확인</a>			
+			</div>
 			</div>
 		</form>
     </div>
@@ -119,7 +116,7 @@
 				} else {
 					$('#changepwcheck_result').attr('hidden', true);
 					$('#changepw_result').attr('hidden', false);
-					$('#changepw_Msg').text("비밀번호를 변경할 수 없습니다.").css({"color": "#DC143C", "font-size": "13px","font-weight": "400","letter-spacing":" -0.2px", "line-height": "18px;", "margin": "6px 12px 4px"});				
+					$('#changepw_Msg').text("비밀번호를 변경할 수 없습니다.").css({"color": "#DC143C", "font-size": "13px","font-weight": "400","letter-spacing":" -0.2px", "line-height": "18px;", "margin": "6px 12px 4px"});					
 				}//end if
 			},//end success
 			error:function(){

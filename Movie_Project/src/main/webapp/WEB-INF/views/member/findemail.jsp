@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <div id="findemail_modal" class="modal">  
-    <div>
+    <div class="login_modal_full_div">
     	<form action="<c:url value='/member/login'/>" method="post" name="loginfrm">	
 			<div class="title1">
 				<p class="title1_content">이메일 찾기</p>
 			</div>
 			<div id="findemail_form" >
-				<div>
+				<div >
 					<label>생년월일</label>
 					<input type="date" name="birthDate" id="birthDate" size="20" placeholder="생년월일" required>			
 				</div>
@@ -17,7 +17,8 @@
 				</div>
 				<div class="loginBtn">
 					
-					<input type="button" id="findemail_btn" value="아이디 찾기" />				
+					<!-- <input type="button" id="findemail_btn" value="아이디 찾기" />				 -->
+					<a id="findemail_btn" class="login_btn">아이디 찾기</a>	
 				</div>
 			</div>
 			<div id="email_result" hidden="true">
@@ -49,11 +50,16 @@
 				if(data == 'fail'){
 					$('#findemail_form').attr('hidden', true);
 					$('#email_result').attr('hidden', false);
-					$('#findemail_Msg').text("가입된 이메일이 없습니다.").css({"color": "#DC143C", "font-size": "13px","font-weight": "400" , " letter-spacing": "-0.2px", " line-height": "18px" , "margin": "6px 12px 4px" });				
+					$('#findemail_Msg').text("가입된 이메일이 없습니다.").css({"color": "#DC143C", "font-size": "13px",
+						"font-weight": "400" , " letter-spacing": "-0.2px", " line-height": "18px" , 
+						"margin": "6px 12px 4px" });				
 				} else {
 					$('#findemail_form').attr('hidden', true);
 					$('#email_result').attr('hidden', false);
-					$('#findemail_Msg').text(matchEmail).css({"color": "green", "font-size": "13px","font-weight": "400" , " letter-spacing": "-0.2px", " line-height": "18px" , "margin": "6px 12px 4px" });				
+					$('#findemail_Msg').text(matchEmail).css({"color": "green", 
+						"font-size": "13px","font-weight": "400" , 
+						" letter-spacing": "-0.2px", " line-height": "18px" , 
+						"margin": "6px 12px 4px" });						
 				}//end if	
 			},//end success
 			error:function(){
