@@ -17,7 +17,7 @@
 </tr>
 <tr>
 	<th>내용</th>
-	<td><input type="text" name="noticeContent" required></td>
+	<td><textarea row="15" cols="65" name="noticeContent" required style="width:400px; height:400px;"></textarea></td>
 </tr>
 <tr>
 	<th>&nbsp;</th>
