@@ -7,23 +7,22 @@
 				<p class="title1_content">비밀번호 변경</p>
 			</div>
 			<div id="changepwcheck_form" >
-				<div class="phonenum_div">
-					<label class="input_memeber_title">이메일</label>
+				<div>
+					<label>이메일</label>
 					<input type="email" id="email_changepw" size="30" placeholder="이메일" maxlength="30" required>			
 				</div>
-				<div class="phonenum_div">
-					<label class="input_memeber_title">생년월일</label>
+				<div>
+					<label>생년월일</label>
 					<input type="date" id="birthDate_changepw" size="20" placeholder="생년월일" required>			
 				</div>
-				<div class="phonenum_div">
-					<label class="input_memeber_title">연락처</label>
+				<div>
+					<label>연락처</label>
 					<input type="tel" id="phoneNumber_changepw" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="012-3456-7890" required/>			
 				</div>
 				<div >					
-					<input type="button" id="changepwcheck" value="확인" />			
-				</div>
-				<div>
-				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>	
+					<!-- <input type="button" id="changepwcheck" value="확인" /> -->
+					<a id="changepwcheck">확인</a>	
+					<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>			
 				</div>
 			</div>
 			
@@ -32,12 +31,8 @@
 				<input id="password_change" title="비밀번호 입력란" placeholder="비밀번호" type="password" value="">							
 				<input id="password_change_chk" title="비밀번호 재입력 확인란" placeholder="비밀번호 재입력" type="password" value="">					
 				<input type="hidden" id="matchEmail2" value="">
-				<div>
-				<a id="changepw_btn" class="close_btn_pw">비밀번호 변경</a>   
-				</div> 
-				<div>
+				<a id="changepw_btn">비밀번호 변경</a>    
 				<a class="close_btn" id="close_btn" href="#close" rel="modal:close">취소</a>  
-				</div> 
 			</div>
 			
 			<div id="changepwcheck_fail" hidden="true">
@@ -114,12 +109,12 @@
 				if(data == 'ok'){
 					$('#changepwcheck_result').attr('hidden', true);					
 					$('#changepw_result').attr('hidden', false);			
-					$('#changepw_Msg').text("비밀번호가 변경되었습니다.").css({"color": "green", "font-size": "13px","font-weight": "400","letter-spacing":" -0.2px", "line-height": "18px;", "margin": "6px 12px 4px"});	
+					$('#changepw_Msg').text("비밀번호가 변경되었습니다.").css("color", "pink");	
 					//$('#matchEmail2').val("");
 				} else {
 					$('#changepwcheck_result').attr('hidden', true);
 					$('#changepw_result').attr('hidden', false);
-					$('#changepw_Msg').text("비밀번호를 변경할 수 없습니다.").css({"color": "#DC143C", "font-size": "13px","font-weight": "400","letter-spacing":" -0.2px", "line-height": "18px;", "margin": "6px 12px 4px"});				
+					$('#changepw_Msg').text("비밀번호를 변경할 수 없습니다.").css("color", "orange");					
 				}//end if
 			},//end success
 			error:function(){

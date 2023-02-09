@@ -6,7 +6,7 @@
 	display: grid;
 	justify-content: flex-start;
 	align-items: flex-end;
-	margin: 10px 20px;
+	margin: 10px 5px;
 	align-items: end;
 	white-space: normal;
 	background: rgb(255, 255, 255);
@@ -212,7 +212,7 @@
 .review_container {
 	justify-content: flex-start;
 	align-items: flex-end;
-	margin: 10px 20px;
+	margin: 10px 5px;
 	align-items: end;
 	white-space: normal;
 	background: rgb(255, 255, 255);
@@ -322,7 +322,7 @@
 }
 
 .filminfolistsamegenre{
-	margin: 10px 20px;
+	margin: 10px 5px;
 	align-items: end;
 	white-space: normal;
 	background: rgb(255, 255, 255);

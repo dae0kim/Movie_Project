@@ -49,7 +49,7 @@
 		        </div>
 		        
 		
-	      <div class="many_review_box" id="film_list_main_review">
+	      <div class="index_box" id="film_list_main_review">
 			<h2 class="index_title_font">리뷰 많은순</h2>
 	        <div id="slideShow">
 		    	<ul id="slides_main_review" class="slides">
