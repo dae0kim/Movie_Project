@@ -11,21 +11,20 @@
 					<label>생년월일</label>
 					<input type="date" name="birthDate" id="birthDate" size="20" placeholder="생년월일" required>			
 				</div>
-				<div>
+				<div class="phonenum_div">
 					<label>연락처</label>
 					<input type="tel" id="phoneNumber" name="phoneNumber" id="birthDate" required pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="012-3456-7890" required/>			
 				</div>
 				<div class="loginBtn">
 					
-					<!-- <input type="button" id="findemail_btn" value="아이디 찾기" />				 -->
-					<a id="findemail_btn">아이디 찾기</a>	
+					<input type="button" id="findemail_btn" value="아이디 찾기" />				
 				</div>
 			</div>
 			<div id="email_result" hidden="true">
 				<label id="findemail_Msg"></label>
 				<!-- <input type="button" onClick="location.href='#close_btn'"> -->
 
-				<a id="close_btn" href="#close" rel="modal:close">확인</a>
+				<a id="close_btn" href="#close" rel="modal:close" class="confirm_member_btn">확인</a>
 			</div>
 							
 		</form>
@@ -50,11 +49,11 @@
 				if(data == 'fail'){
 					$('#findemail_form').attr('hidden', true);
 					$('#email_result').attr('hidden', false);
-					$('#findemail_Msg').text("가입된 이메일이 없습니다.").css("color", "pink");				
+					$('#findemail_Msg').text("가입된 이메일이 없습니다.").css({"color": "#DC143C", "font-size": "13px","font-weight": "400" , " letter-spacing": "-0.2px", " line-height": "18px" , "margin": "6px 12px 4px" });				
 				} else {
 					$('#findemail_form').attr('hidden', true);
 					$('#email_result').attr('hidden', false);
-					$('#findemail_Msg').text(matchEmail).css("color", "blue");					
+					$('#findemail_Msg').text(matchEmail).css({"color": "green", "font-size": "13px","font-weight": "400" , " letter-spacing": "-0.2px", " line-height": "18px" , "margin": "6px 12px 4px" });				
 				}//end if	
 			},//end success
 			error:function(){
