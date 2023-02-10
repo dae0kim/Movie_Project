@@ -134,7 +134,6 @@
 
 					if ($('#email_reg_check').val() == 'true'){	
 	 					var email = $('#email').val();
-						console.log(email);
 						$.ajax({
 							url: "member/emailchk",		
 							type: "post",
@@ -164,7 +163,6 @@
  				//닉네임 중복체크
 				$('#nickname').focusout(function(){
 					var nickname = $('#nickname').val();
-					console.log(nickname);
 					$.ajax({
 						url: "member/nicknamechk",		
 						type: "post",
@@ -192,14 +190,12 @@
  				//휴대폰번호 중복체크
 				$('#phoneNumber_join').focusout(function(){
 					var phoneNumber = $('#phoneNumber_join').val();
-					console.log(phoneNumber);
 					$.ajax({
 						url: "member/phonechk",		
 						type: "post",
 						data: {phoneNumber: phoneNumber},
 						dataType: 'text',
 						success: function(data){
-							console.log(data);
 							if(data == 'ok'){
 								$('#phoneNumber_msg').text("사용 가능한 번호입니다.").css({"color": "green", "font-size": "13px","font-weight": "400" , " letter-spacing": "-0.2px", " line-height": "18px" , "margin": "6px 12px 4px" });	// 사용 가능 알림메세지
 								$('#phoneNumber_overlap_check').val("true");
@@ -250,7 +246,6 @@
 					    $('#phoneNumber_join').focus();	
 				    	
 				    	return false;	
-				    		
 				    }
 				  });
 				}			

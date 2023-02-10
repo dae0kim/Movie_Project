@@ -2,7 +2,6 @@
 <%@include file="../header.jsp"%>
 
 <div class="wrapper">
-<%-- <form action="<c:url value='/member/update'/>" method="post" name="joinfrm" >  --%>	
 	<div class="upadate_form_container">
 	<form action="<c:url value='/member/update'/>" method="post" > 					
 		<div>
@@ -71,8 +70,6 @@
 				</div>	
 				</div>
 			</div>
-			<!-- <input type="submit" id="delete_btn" value="회원 탈퇴하기"> -->
-			<%--  <button id="delete_btn" type="button" onclick="location.href = '<c:url value='/member/deleteMember' />'   ">회원 탈퇴하기</button> --%>
 			 
 			</form>  		
 		</div>							  
@@ -126,14 +123,12 @@ function passwordChk(){
 }//end passwordChk
 
 $("#delete_btn").click(function(e){
-	//e.preventDefalt();
     if(confirm("정말 탈퇴하시겠습니까?")){
     	$.ajax({
 			url: "<c:url value='/member/deleteMember'/>",
 			type: "post",
 			success: function(data){
 				if(data == 'ok'){
-					console.log(data);
 					alert("회원 탈퇴가 완료되었습니다.");
 					window.location.replace("/myapp/index");					
 				} else {

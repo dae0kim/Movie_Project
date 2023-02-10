@@ -79,29 +79,25 @@
 			//로그인 실행
 			var emailchk = $('#email_login_overlap_check').val();
 			var pwchk = $('#pw_login_overlap_check').val();
-			console.log(emailchk);
-			console.log(pwchk);
 			if(emailchk == 'true' && pwchk == 'true'){
-			console.log(emailchk);
-			console.log(pwchk);
-			var member_email = $('#member_email').val();	
-			var member_pw = $('#member_pw').val();
-			
-				$.ajax({
-					url: "<c:url value='/member/login'/>",
-					type: "post",
-					data: {member_email: member_email, member_pw: member_pw},
-					success: function(data){
-						if(data == 'ok'){
-							window.location.replace("/myapp/index");																				
-						} else {
-							alert("이메일 혹은 비밀번호가 잘못되었습니다.");	
-						}//end if								
-					},//end success
-					error:function(){
-						alert("로그인 실패");
-					}//end error														
-				})//end 로그인 실행 ajax				
+				var member_email = $('#member_email').val();	
+				var member_pw = $('#member_pw').val();
+				
+					$.ajax({
+						url: "<c:url value='/member/login'/>",
+						type: "post",
+						data: {member_email: member_email, member_pw: member_pw},
+						success: function(data){
+							if(data == 'ok'){
+								window.location.replace("/myapp/index");																				
+							} else {
+								alert("이메일 혹은 비밀번호가 잘못되었습니다.");	
+							}//end if								
+						},//end success
+						error:function(){
+							alert("로그인 실패");
+						}//end error														
+					})//end 로그인 실행 ajax				
 			} else {
 				alert("이메일 또는 비밀번호를 확인해주세요.");
 			}
@@ -111,7 +107,6 @@
 	        if (event.which == 13) {
 	            $("#login_btn").click();
 	        }
-	        console.log(event);
 	    });
 	
 

@@ -57,7 +57,6 @@
 		var email_changepw = $('#email_changepw').val();
 		var birthDate_changepw = $('#birthDate_changepw').val();
 		var phoneNumber_changepw = $('#phoneNumber_changepw').val();
-		console.log(email_changepw);
 		
 		$.ajax({
 			url: "member/changepwcheck",
@@ -65,7 +64,6 @@
 			data: {email_changepw: email_changepw, birthDate_changepw: birthDate_changepw, phoneNumber_changepw: phoneNumber_changepw},
 			success: function(data){
 				var matchEmail2 = data;
-				console.log(matchEmail2);
 				
 				if(matchEmail2 == "fail"){										
 					$('#changepwcheck_form').attr('hidden', true);
@@ -101,7 +99,6 @@
 	$("#changepw_btn").click(function(){
 		var matchEmail2 = $('#matchEmail2').val();
 		var password_change = $('#password_change').val();
-		console.log(matchEmail2);
 		
 		$.ajax({
 			url: "member/changepw",
@@ -112,7 +109,6 @@
 					$('#changepwcheck_result').attr('hidden', true);					
 					$('#changepw_result').attr('hidden', false);			
 					$('#changepw_Msg').text("비밀번호가 변경되었습니다.").css({"color": "green", "font-size": "13px","font-weight": "400","letter-spacing":" -0.2px", "line-height": "18px;", "margin": "6px 12px 4px"});	
-					//$('#matchEmail2').val("");
 				} else {
 					$('#changepwcheck_result').attr('hidden', true);
 					$('#changepw_result').attr('hidden', false);

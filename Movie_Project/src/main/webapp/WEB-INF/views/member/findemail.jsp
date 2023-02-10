@@ -38,7 +38,6 @@
 	$("#findemail_btn").click(function(){
 		var birthDate = $("#birthDate").val();
 		var phoneNumber = $("#phoneNumber").val();
-		console.log(birthDate);
 		
 		$.ajax({
 			url: "member/findemail",
@@ -46,7 +45,6 @@
 			data: {birthDate: birthDate, phoneNumber: phoneNumber},
 			success: function(data){
 				var matchEmail = data;
-				console.log(matchEmail);
 				if(data == 'fail'){
 					$('#findemail_form').attr('hidden', true);
 					$('#email_result').attr('hidden', false);
@@ -73,8 +71,6 @@
 	})//end findemail_btn
 	
 	$("#close_btn").click(function(){
-		//$("#birthDate").val("");
-		//$("#phoneNumber").val("");
 		$('#findemail_Msg').val("");
 		$('#findemail_form').attr('hidden', false);
 		$('#email_result').attr('hidden', true);
