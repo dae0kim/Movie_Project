@@ -217,7 +217,6 @@
 			</script>
 			
 			
-			<%-- <form id ="insertForm" action = "<c:url value='/insert'/>" method="post"   onsubmit="return insertMember()" enctype="multipart/form-data" class="form-floating"> --%>
 			
 			
 			<script>
