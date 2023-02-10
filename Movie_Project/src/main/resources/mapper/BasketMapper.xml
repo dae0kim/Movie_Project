@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     
-<!-- 김미리 작성 : 위시리스트 -->
 
 <mapper	namespace="com.project.myapp.movie.basket.IBasketRepository">
-
+	
+	<!-- 작성자 : 김미리 -->
 	<!-- 위시리스트 담기 -->
 	<insert id="insertBasket" parameterType="com.project.myapp.movie.basket.BasketVO">
 		INSERT INTO Basket
@@ -14,6 +14,7 @@
 					(Basket_SEQ.nextval, #{memberId}, #{filmId})
 	</insert> 
 	
+	<!-- 작성자 : 김미리 -->
 	<!-- 마이페이지 위시리스트 출력 -->
 	<select id="getBasketList" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
 		SELECT f.FILM_TITLE   AS filmTitle,
@@ -31,6 +32,7 @@
 		    AND b.member_id = #{memberId}  
 	</select>
 	
+	<!-- 작성자 : 김미리 -->
 	<!-- 담기 기능: 위시리스트 체크 -->
 	<select id="getBasketList_chk" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
 		SELECT f.FILM_TITLE   AS filmTitle,
@@ -49,17 +51,17 @@
 		    AND f.film_id = #{filmId}
 	</select>
 	
+	<!-- 작성자 : 김미리 -->
 	<!-- 삭제 기능: 위시리스트 체크 -->
 	<delete id="deleteBasket" >
 		DELETE FROM basket
 		WHERE basket_Id= #{basketId} and member_id = #{memberId}
 	</delete >
 	
-	<!-- 장바구니 삭제 -->
 	<!-- 작성자: 이기쁨 -->
+	<!-- 장바구니 삭제 -->
 	<delete id="deleteBasket2" parameterType="String">
 		DELETE FROM BASKET WHERE MEMBER_ID = #{memberId}	
 	</delete>
-	
 	
 </mapper>

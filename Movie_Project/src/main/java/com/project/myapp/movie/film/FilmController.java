@@ -82,7 +82,6 @@ public class FilmController {
 	// 작성자 : 김미리 
 	// 영화 검색 
 	@RequestMapping( value="/film/search_view", method = RequestMethod.POST)   
-	//@ResponseBody   // 프론트에서 전달 한 json데이터를 해당 파라미터에 매핑시켜야 하기 때문에 필수로 사용 
 	public String filmSearch(@RequestParam("keyword") String keyword, FilmVO filmVO, Model model, Locale locale, RedirectAttributes redirectAttributes, HttpSession session, HttpServletRequest request) {
 		
 	if (keyword == null) {  // 파라미터 값이 없을 시
@@ -111,7 +110,5 @@ public class FilmController {
 			}
 		}
 	}
-	
-	
 		
 }

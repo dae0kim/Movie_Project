@@ -28,6 +28,7 @@ public class MemberController {
 	@Autowired
 	IFilmService filmService;
 	
+	// 작성자 : 김대영
 	// <공용> 헤더의 로고 누를 때 메인으로 이동
 	@RequestMapping(value="/index")
 	public String logoAction(HttpSession session, Model model) {
@@ -49,6 +50,7 @@ public class MemberController {
 		return action;
 	}
 	
+	// 작성자 : 김대영
 	// <공용> 메인페이지 첫 로딩 때 실행
 	@RequestMapping(value="/")
 	public String mainPage(Model model) {
@@ -61,14 +63,14 @@ public class MemberController {
 		return "/index";
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원가입 폼으로 오기
 	@RequestMapping(value="/member/join", method=RequestMethod.GET)
 	public String join(Model model) {
 		return "member/join";
 	}//회원가입 폼으로 오기
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원가입 email 중복 체크
 	@RequestMapping(value="/member/emailchk")
 	@ResponseBody
@@ -79,7 +81,7 @@ public class MemberController {
 		return (memberService.overlapChk(memberVO) == 0)? "ok":"fail";
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원가입 닉네임 중복 체크
 	@RequestMapping(value="/member/nicknamechk")
 	@ResponseBody
@@ -90,7 +92,7 @@ public class MemberController {
 		return (memberService.overlapChk(memberVO) == 0)? "ok":"fail";
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원가입 휴대폰번호 중복 체크
 	@RequestMapping(value="/member/phonechk")
 	@ResponseBody
@@ -101,17 +103,15 @@ public class MemberController {
 		return (memberService.overlapChk(memberVO) == 0)? "ok":"fail";
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원가입 insertMember 메서드 실행
 	@RequestMapping(value="/member/join")
 	public String join(Model model, MemberVO memberVO, Locale locale) {
-
 			memberService.insertMember(memberVO);
-					
 			return "redirect:/";		
 	}//회원가입
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//로그아웃
 	@RequestMapping(value="/member/logout", method=RequestMethod.GET)
 	public String logout(HttpSession session, HttpServletRequest request) {
@@ -119,7 +119,7 @@ public class MemberController {
 		return "redirect:/";
 	}//로그아웃
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//로그인 실험
 	@RequestMapping(value="/member/login", method=RequestMethod.POST)
 	@ResponseBody
@@ -148,14 +148,14 @@ public class MemberController {
 		return "fail";
 	}//end login
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//제이쿼리 모달창
 	@RequestMapping(value="/member/login")
 	public String login(Model model) {
 		return "member/login";
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//이메일 찾기
 	@RequestMapping(value="/member/findemail")
 	@ResponseBody
@@ -165,7 +165,7 @@ public class MemberController {
 		return (matchEmail == null)? "fail" : matchEmail;
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원정보찾기(비밀번호 변경시)
 	@RequestMapping(value="/member/changepwcheck")
 	@ResponseBody
@@ -188,7 +188,7 @@ public class MemberController {
 		}	
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//비밀번호 변경
 	@RequestMapping(value="/member/changepw")
 	@ResponseBody
@@ -203,14 +203,14 @@ public class MemberController {
 		return (updateResult != 0)? "ok": "fail";
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원정보 수정 페이지로 이동
 	@RequestMapping(value="/member/updateMember", method=RequestMethod.GET)
 	public String update(Model model) {
 		return "./member/updateMember";
 	}//회원가입 폼으로 오기
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원정보 수정
 	@RequestMapping(value="/member/update")
 	@ResponseBody
@@ -229,8 +229,8 @@ public class MemberController {
 		return (updateResult != 0)? "ok": "fail";
 	}
 	
+	// 작성자: 이기쁨
 	//회원 탈퇴
-	//작성자: 이기쁨
 	@RequestMapping(value="/member/deleteMember")
 	@ResponseBody
 	public String deleteMember(HttpSession session, Locale locale) {
@@ -246,7 +246,7 @@ public class MemberController {
 	
 	
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//관리자
 	//관리자 로그인화면으로 이동
 	@RequestMapping(value="/member/adminlogin", method=RequestMethod.GET)
@@ -255,7 +255,7 @@ public class MemberController {
 		return "member/adminlogin";
 	}//관리자 로그인화면으로 이동
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//관리자 로그인 실행
 	@RequestMapping(value="/member/adminlogin", method=RequestMethod.POST)
 	public String adminlogin(String email, String password, HttpSession session, Model model, RedirectAttributes redirectAttributes) {
@@ -264,7 +264,6 @@ public class MemberController {
 			String dbPassword = memberVO.getPassword();
 			if(dbPassword == null) {
 				//아이디 없음
-				System.out.println("등록되지 않은 이메일 입니다.");
 				model.addAttribute("message", "등록되지 않은 이메일 입니다.");
 			} else {
 				//아이디 있음
@@ -291,7 +290,7 @@ public class MemberController {
 		return "redirect:/member/adminlogin";
 		}// 관리자 로그인 실행
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//관리자 페이지로 이동
 	@RequestMapping(value="/adminhome", method=RequestMethod.GET)
 	public String toAdminhome(Model model) {

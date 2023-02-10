@@ -1,3 +1,5 @@
+/*작성자 : 김대영*/
+
 //-------------------------평균 평점 이미지 슬라이더-------------------------------
 const slides_main_star = document.querySelector("#slides_main_star"); //전체 슬라이드 컨테이너
 const slideImg_main_star = document.querySelectorAll("#slides_main_star li"); //모든 슬라이드들

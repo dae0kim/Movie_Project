@@ -1,5 +1,6 @@
 package com.project.myapp.movie.notice;
 
+//작성자 : 김대영
 public class NoticeVO {
 	private String noticeId;
 	private String noticeTitle;

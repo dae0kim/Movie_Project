@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+/*작성자 : 이기쁨*/
 function loginCheck() {
 				/* 아이디 입력상자 : 이름이 loginfrm인 폼 태그 내부에 존재 */
 				if (loginfrm.email.value.length == 0) {

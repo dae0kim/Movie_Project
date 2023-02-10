@@ -71,8 +71,5 @@ public class ReviewService implements IReviewService {
 	public void updateLikeCount(String reviewId) {
 		reviewRepository.updateLikeCount(reviewId);
 	}
-	
-
-	
 
 }

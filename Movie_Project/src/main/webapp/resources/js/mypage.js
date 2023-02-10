@@ -1,6 +1,7 @@
+/*작성자 : 김대영*/
+
 //-------------------------영화 감상 시간 출력문구-------------------------------
 var myTime = $("#myTime").val();
-//console.log("총 영화 감상 시간"+myTime);
 var day=0;
 if(parseInt(myTime/1440) < 1){
 	day=0;
@@ -9,9 +10,6 @@ if(parseInt(myTime/1440) < 1){
 	myTime = myTime-(day*1440);
 	$('#day_hour_min_msg').append('<span>총 '+day+'일 </span>');
 }
-
-//console.log("일 단위를 뺀 나머지 분"+myTime);
-//console.log("총 "+day+"일");
 
 var hour=0;
 if(parseInt(myTime/60) < 1){
@@ -22,8 +20,6 @@ if(parseInt(myTime/60) < 1){
 	myTime = myTime-(hour*60);
 	$('#day_hour_min_msg').append('<span>'+hour+'시간 </span>');
 }
-//console.log("시간 단위를 뺀 나머지 분"+myTime);
-//console.log("총 "+hour+"시간");
 
 var min=0;
 if(myTime==0){
@@ -32,11 +28,6 @@ if(myTime==0){
 	min = myTime;
 	$('#day_hour_min_msg').append('<span>'+min+'분 입니다.</span>');
 }
-//$('#myTime_min').append(min);
-//console.log("다 계산하고 남은 분:"+myTime);
-//console.log("총"+min+"분");
-
-
 
 //-------------------------리뷰 작성순서 이미지 슬라이더-------------------------------
 const slides_time = document.querySelector("#slides_time"); //전체 슬라이드 컨테이너

@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.project.myapp.movie.film.FilmVO;
 
+//작성자 : 김대영
 public interface IBasketService {
 	// 바구니에 담기
 	void insertBasket(BasketVO basket);

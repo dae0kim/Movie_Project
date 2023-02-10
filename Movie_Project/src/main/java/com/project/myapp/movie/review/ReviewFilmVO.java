@@ -1,5 +1,6 @@
 package com.project.myapp.movie.review;
  
+//작성자 : 김대영
 // 영화 제목, 자신의 별점, 포스터 정보 출력을 위한 추가적인 VO
 public class ReviewFilmVO {
 	private String filmTitle;

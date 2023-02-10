@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+//작성자 : 김대영
 @Service
 public class FilmRequestService implements IFilmRequestService {
 
@@ -15,7 +16,6 @@ public class FilmRequestService implements IFilmRequestService {
 	
 	// -----------------<사용자>-----------------
 	// 영화 추가 요청 정보를 테이블에 삽입
-	// 작성자 : 김대영
 	@Override
 	public void insertFilmRequest(FilmRequestVO filmRequest) {
 		filmRequestRepository.insertFilmRequest(filmRequest);
@@ -23,14 +23,12 @@ public class FilmRequestService implements IFilmRequestService {
 
 	// -----------------<관리자>-----------------
 	// 영화 추가 요청 리스트 출력
-	// 작성자 : 김대영
 	@Override
 	public List<FilmRequestVO> getFilmRequestList() {
 		return filmRequestRepository.getFilmRequestList();
 	}
 
 	// 영화 추가 요청 상세 정보 조회
-	// 작성자 : 김대영
 	@Override
 	public FilmRequestVO getFilmRequestInfo(String filmRequestId) {
 		return filmRequestRepository.getFilmRequestInfo(filmRequestId);

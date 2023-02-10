@@ -2,6 +2,7 @@ package com.project.myapp.movie.uploadfile;
 
 import java.util.List;
 
+//작성자 : 김대영
 public interface IUploadFileService {
 	
 	// -----------------<사용자 + 관리자>-----------------

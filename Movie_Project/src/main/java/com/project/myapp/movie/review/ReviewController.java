@@ -54,15 +54,14 @@ public class ReviewController {
 	}
 
 	//------------------------------------------------------------------------------
-	// 1. [리뷰입력하기] 누를시 리뷰폼으로 이동
+	// [리뷰입력하기] 누를시 리뷰폼으로 이동
 	// 작성자 : 손일형
 	@RequestMapping(value = "/insertreview", method = RequestMethod.POST)
 	public String reviewForm(HttpServletRequest request) {
-		
 		return "review/insertreview";
 	}
 
-	// 2. 리뷰입력창에서 영화정보 불러옴
+	// 리뷰입력창에서 영화정보 불러옴
 	// 작성자 : 손일형
 	@RequestMapping(value = "/insertreview/{filmId}")
 	public String getFilmInfo(@PathVariable String filmId, Model model) {
@@ -72,7 +71,7 @@ public class ReviewController {
 		return "review/insertreview";
 	}
 
-	// 3. 입력된 리뷰 DB에 저장
+	// 입력된 리뷰 DB에 저장
 	// 작성자 : 손일형
 	@RequestMapping(value = "/insertreview/{filmId}", method = RequestMethod.POST)
 	public String insertReview(ReviewVO rev, String filmId, RedirectAttributes redirectAttributes) {
@@ -84,7 +83,7 @@ public class ReviewController {
 	}
 	
 	
-	// 4. 해당 영화에 작성된 리뷰 출력
+	// 해당 영화에 작성된 리뷰 출력
 	// 작성자 : 손일형
 	@RequestMapping(value = "/review/review_list/{filmId}")
 	public String getFilmReviewList(String filmId, Model model) {

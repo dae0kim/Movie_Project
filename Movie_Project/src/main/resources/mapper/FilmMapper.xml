@@ -46,6 +46,7 @@
 		ON f.film_id = u.film_id
 		ORDER BY f.review_count DESC
 	</select>
+	
 	<!-- 작성자 : 김대영 -->
 	<select id="getFilmListByStar" resultType="com.project.myapp.movie.film.FilmVO">
 		SELECT f.film_id AS filmId,
@@ -126,8 +127,8 @@
 		WHERE film_id=#{filmId}
 	</delete>
 	
-	  <!--  필름 상세보기  -->
 	  <!-- 작성자 : 손일형 -->
+	  <!--  필름 상세보기  -->
 	  <select id="getFilmInfo" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
 		SELECT f.film_id AS filmId,
 			   f.film_title AS filmTitle,
@@ -149,8 +150,8 @@
 		WHERE f.film_id = #{filmId}
 	</select> 
 	
-	<!-- 별점 평균 출력 -->
 	<!-- 작성자 : 손일형 -->
+	<!-- 별점 평균 출력 -->
 	<update id="updateStarAvg" parameterType="String">
 		UPDATE FILM
 		SET star_average = ( 
@@ -160,16 +161,16 @@
 		WHERE film_id = #{filmId}
 	</update>
 	
-	<!-- 총 리뷰 수 카운트 -->
 	<!-- 작성자 : 손일형 -->
+	<!-- 총 리뷰 수 카운트 -->
 	<update id="updateRivewCount" parameterType="String">
 		UPDATE film
 		SET review_count = review_count + 1
 		WHERE film_id = #{filmId}
 	</update>
 	
-	<!-- 같은장르 영화 추천 -->
 	<!-- 작성자 : 손일형 -->
+	<!-- 같은장르 영화 추천 -->
 	<select id="getFilmListByGenreFilmInfo" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">						    
 		select f1.film_id AS filmId,
 			   f1.film_title AS filmTitle,
@@ -183,7 +184,8 @@
 						    where f2.film_id= #{filmId} )
 	</select> 
 	
-	<!-- 김미리 작성 : 영화 검색 결과 리스트 -->
+	<!-- 작성자 : 김미리 -->
+	<!-- 영화 검색 결과 리스트 -->
 	<select id="getFilmSearch" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
 		SELECT 	
 				f.FILM_TITLE 		AS 	filmTitle,
@@ -200,7 +202,8 @@
 		WHERE f.FILM_TITLE Like '%' ||  #{keyword} || '%'
 	</select>
 	
-	<!-- 김미리 작성 : 감독 검색 결과 리스트 -->
+	<!-- 작성자 : 김미리 -->
+	<!-- 감독 검색 결과 리스트 -->
 	<select id="getDrectorSearch" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
 		SELECT 	
 				f.FILM_TITLE 		AS 	filmTitle,
@@ -217,7 +220,8 @@
 		WHERE f.DIRECTOR Like '%' ||  #{keyword} || '%' 
 	</select>
 	
-	<!-- 김미리 작성 : 배역 검색 결과 리스트 -->
+	<!-- 작성자 : 김미리 -->
+	<!-- 배역 검색 결과 리스트 -->
 	<select id="getActorSearch" parameterType="String" resultType="com.project.myapp.movie.film.FilmVO">
 		SELECT 	
 				f.FILM_TITLE 		AS 	filmTitle,

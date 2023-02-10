@@ -1,57 +1,55 @@
 /**
  * 
  */
- 		$(".btnlike").on("click", function() {
-			var reviewId = $(this).attr("data-reviewId");
-			var memberId = $(this).attr("data-memberId");
-			var reviewlikeid = $(this).attr("data-reviewlikeid")
-			console.log(reviewId + " " + memberId);
 
-			$.ajax({
-				url : "/myapp/insertlike",
-				method : "post",
-				dataType : "text",
-				data : {
-					"reviewId" : reviewId,
-					"memberId" : memberId
-				},
-				success : function(data) {
-					var countlike = data;
-					console.log(data);
-					
-					location.reload();
-				}
-			})
+/*작성자 : 손일형*/
+$(".btnlike").on("click", function() {
+	var reviewId = $(this).attr("data-reviewId");
+	var memberId = $(this).attr("data-memberId");
+	var reviewlikeid = $(this).attr("data-reviewlikeid")
 
-		})
-		$(function() {
-			$("#btn_toggle").click(function() {
-				$("#Toggle").toggle();
-				 
-			});
-		});
-		
-		function reloadreviewcount() {
-			$("#review_count").load(window.location.href + "#review_count");
+	$.ajax({
+		url : "/myapp/insertlike",
+		method : "post",
+		dataType : "text",
+		data : {
+			"reviewId" : reviewId,
+			"memberId" : memberId
+		},
+		success : function(data) {
+			var countlike = data;
+			
+			location.reload();
 		}
+	})
+
+})
+
+$(function() {
+	$("#btn_toggle").click(function() {
+		$("#Toggle").toggle();
+		 
+	});
+});
 		
-		function fn2() {
-			$(".reviewfooter").load(window.location.href + "reviewfooter");
-		}
+function reloadreviewcount() {
+	$("#review_count").load(window.location.href + "#review_count");
+}
+
+function fn2() {
+	$(".reviewfooter").load(window.location.href + "reviewfooter");
+}
 		
 		
-		
-							function checkOnlyOne(element) {
-						  
-						  const checkboxes 
-						      = document.getElementsByName("starScore");
-						  
-						  checkboxes.forEach((cb) => {
-						    cb.checked = false;
-						  })
-						  
-						  element.checked = true;
-						}
+function checkOnlyOne(element) {  
+  const checkboxes = document.getElementsByName("starScore");
+  
+  checkboxes.forEach((cb) => {
+    cb.checked = false;
+  })
+  
+  element.checked = true;
+}
 						
 						
 //-------------------------영화 상세페이지 이미지 슬라이더-------------------------------

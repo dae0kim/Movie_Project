@@ -2,6 +2,7 @@ package com.project.myapp.movie.film;
 
 import org.springframework.web.multipart.MultipartFile;
 
+//작성자 : 김대영
 public class FilmVO {
 	private String filmId;
 	private String filmTitle;

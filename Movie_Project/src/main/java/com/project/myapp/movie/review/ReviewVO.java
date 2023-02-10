@@ -1,5 +1,6 @@
 package com.project.myapp.movie.review;
 
+//작성자 : 김대영
 public class ReviewVO {
 	private String reviewId;
 	private String reviewContent;
@@ -10,11 +11,11 @@ public class ReviewVO {
 	private String memberId;
 	private String filmId;
 	
-	// 추가 : 리뷰카운트 실시간 업데이트 하려고
+	// 추가 : 리뷰카운트 실시간 업데이트 위함
 	// 작성자 : 손일형
 	private String reviewLikeId;			// 리뷰 좋아요 id
 	
-	// 추가 : 리뷰리스트 JOIN문에서 닉네임 출력위해 추가함
+	// 추가 : 리뷰리스트 JOIN문에서 닉네임 출력위해 추가
 	// 작성자 : 손일형
 	private String nickname;				// 닉네임
 	
@@ -66,7 +67,6 @@ public class ReviewVO {
 	public void setFilmId(String filmId) {
 		this.filmId = filmId;
 	}
-	
 	public String getReviewLikeId() {
 		return reviewLikeId;
 	}
@@ -80,6 +80,8 @@ public class ReviewVO {
 		this.nickname = nickname;
 	}
 	
+	ReviewVO(){}
+
 	@Override
 	public String toString() {
 		return "ReviewVO [reviewId=" + reviewId + ", reviewContent=" + reviewContent + ", starScore=" + starScore
@@ -87,8 +89,4 @@ public class ReviewVO {
 				+ ", memberId=" + memberId + ", filmId=" + filmId + ", reviewLikeId=" + reviewLikeId + ", nickname="
 				+ nickname + "]";
 	}
-	ReviewVO(){}
-	
-
-	
 }

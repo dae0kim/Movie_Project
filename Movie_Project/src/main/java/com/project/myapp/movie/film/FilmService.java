@@ -21,24 +21,22 @@ public class FilmService implements IFilmService {
 
 	@Override
 	public FilmVO filmSearch(String keyword) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
 	// 김미리 작성 : 영화 검색 메소드 추가
 	@Override
 	public List<FilmVO> getFilmSearch(String keyword) {
-				
 		return filmRepository.getFilmSearch(keyword);
 	}
+	
 	//감독으로 검색
 	public List<FilmVO> getDrectorSearch(String keyword) {
-			
 		return filmRepository.getDrectorSearch(keyword);
 	}
+	
 	//배역으로 검색
 	public List<FilmVO> getActorSearch(String keyword) {
-				
 		return filmRepository.getActorSearch(keyword);
 	}
 
@@ -96,8 +94,5 @@ public class FilmService implements IFilmService {
 	public void updateRivewCount(String filmId) {
 		filmRepository.updateRivewCount(filmId);
 	}
-
-	
-
 
 }

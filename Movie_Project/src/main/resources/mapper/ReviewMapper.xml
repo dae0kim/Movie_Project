@@ -14,24 +14,6 @@
 		<result property="filmId" column="film_id" />
 	</resultMap>
    
-	<resultMap type="com.project.myapp.movie.film.FilmVO" id="filmMap">
-	   <result property="filmId" column="film_id" />
-	   <result property="filmTitle" column="film_title" />
-	   <result property="releaseDate" column="release_date" />
-	   <result property="posterUrl" column="poster_url" />
-	   <result property="starAverage" column="star_average" />
-	   <result property="runTime" column="run_time" />
-	   <result property="reviewCount" column="review_count" />
-	   <result property="genre" column="genre" />
-	   <result property="director" column="director" />
-	   <result property="mainActor" column="mainActor" />
-	   <result property="subActor" column="subActor" />
-	   <result property="summary" column="summary" />
-	   <result property="filmRate" column="film_rate" />
-	   <result property="country" column="country" />
-	   <result property="filmStatus" column="film_status" />
-	</resultMap>
-   
 	<!-- 작성자 : 김대영 -->
 	 <select id="getMyTime" parameterType="String" resultType="String">
 		SELECT SUM(f.run_time)

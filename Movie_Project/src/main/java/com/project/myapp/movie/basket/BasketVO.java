@@ -1,5 +1,6 @@
 package com.project.myapp.movie.basket;
 
+//작성자 : 김대영
 public class BasketVO {
 	private String basketId;
 	private String memberId;

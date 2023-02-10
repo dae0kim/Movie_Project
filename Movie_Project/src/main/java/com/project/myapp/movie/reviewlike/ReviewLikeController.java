@@ -24,7 +24,7 @@ public class ReviewLikeController {
 	@Autowired
 	IReviewService reviewService;
 	
-	// 1. 좋아요 INSERT 및 UPDATE
+	// 좋아요 INSERT 및 UPDATE
 	// 작성자 : 손일형
 	@RequestMapping(value="/insertlike", method = RequestMethod.POST)
 	@ResponseBody

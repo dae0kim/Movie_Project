@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* 작성자 : 김미리,손일형 */
+
 .reviewhead {
 	display: flex;
 	border-bottom: 1px solid rgb(229, 229, 229);

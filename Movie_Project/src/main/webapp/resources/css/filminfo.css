@@ -2,6 +2,7 @@
 /*영화정보 담긴 컨테이너
   포스터, 제목, 별점정보등 담겨있음
 */
+/* 작성자 : 손일형,김미리 */
 .film_info_container {
 	display: grid;
 	justify-content: flex-start;

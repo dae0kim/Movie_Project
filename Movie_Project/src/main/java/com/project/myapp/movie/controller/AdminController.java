@@ -128,7 +128,6 @@ public class AdminController {
 	@RequestMapping(value = "/notice/delete", method = RequestMethod.GET)
 	public String deleteNotice(String noticeId, Model model) {
 		model.addAttribute("notice", noticeService.getNoticeInfo(noticeId));
-		System.out.println(noticeId + "-------------------------");
 		return "notice/noticedelete";
 	}
 	

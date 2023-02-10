@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+//작성자 : 김대영
 public interface IFilmService {
 	
 	// -----------------<사용자 + 관리자>-----------------
@@ -13,7 +14,7 @@ public interface IFilmService {
 	
 	// -----------------<사용자>-----------------
 	// 메인페이지
-	// 1. 영화 검색
+	// 영화 검색
 	FilmVO filmSearch(String keyword);
 	//영화 검색결과
 	List<FilmVO> getFilmSearch(String keyword);
@@ -30,12 +31,12 @@ public interface IFilmService {
 	// 작성자 : 손일형
 	void updateRivewCount(String filmId);
 	
-	// 2. 영화 목록 출력
+	// 영화 목록 출력
 	// 리뷰순으로 
 	List<FilmVO> getFilmListByReview();
 	// 별점순으로
 	List<FilmVO> getFilmListByStar();
-	// 사용자 맞춤 장르 - 2/1수정됨
+	// 사용자 맞춤 장르
 	List<FilmVO> getFilmListByGenre(String memberId);
 	// 상세페이지
 	List<FilmVO> getFilmListByGenreFilmInfo(@Param("filmId") String filmId);
@@ -43,12 +44,12 @@ public interface IFilmService {
 	
 	
 	// -----------------<관리자>-----------------
-	// 1. 모든 영화 리스트 출력
+	// 모든 영화 리스트 출력
 	List<FilmVO> getFilmList();
-	// 2. 영화 정보 수정
+	// 영화 정보 수정
 	void updateFilm(FilmVO film);
-	// 3. 영화 삭제
+	// 영화 삭제
 	void deleteFilm(String filmId);
-	// 4. 요청 영화 추가
+	// 요청 영화 추가
 	void insertFilm(FilmVO film);
 }

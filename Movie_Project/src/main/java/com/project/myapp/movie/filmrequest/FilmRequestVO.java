@@ -1,5 +1,6 @@
 package com.project.myapp.movie.filmrequest;
 
+//작성자 : 김대영
 public class FilmRequestVO {
 	private String filmRequestId;
 	private String requestTitle;

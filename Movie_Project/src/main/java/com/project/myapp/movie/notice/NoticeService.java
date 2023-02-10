@@ -28,13 +28,11 @@ public class NoticeService implements INoticeService {
 	@Override
 	public void insertNotice(NoticeVO notice) {
 		noticeRepository.insertNotice(notice);
-		
 	}
 
 	@Override
 	public void updateNotice(NoticeVO notice) {
 		noticeRepository.updateNotice(notice);
-		
 	}
 
 	@Override

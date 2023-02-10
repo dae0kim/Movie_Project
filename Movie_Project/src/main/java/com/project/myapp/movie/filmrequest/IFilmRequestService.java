@@ -2,6 +2,7 @@ package com.project.myapp.movie.filmrequest;
 
 import java.util.List;
 
+//작성자 : 김대영
 public interface IFilmRequestService {
 	
 	// -----------------<사용자>-----------------

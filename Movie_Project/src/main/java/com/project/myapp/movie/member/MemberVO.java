@@ -1,5 +1,6 @@
 package com.project.myapp.movie.member;
 
+//작성자 : 김대영
 public class MemberVO {
 	private String memberId;
 	private String email;

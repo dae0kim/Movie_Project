@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
+/* 작성자 : 김미리,이기쁨 */
+
 a{
 	cursor: pointer;
 }
-
 
 .modal a.close-modal{
 	top: 17.5px;

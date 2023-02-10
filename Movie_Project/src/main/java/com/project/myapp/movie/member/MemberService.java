@@ -35,43 +35,41 @@ public class MemberService implements IMemberService {
 	@Qualifier("IBasketRepository")
 	IBasketRepository basketRepository;
 	
-
-	
 	@Override
 	public List<MemberVO> getMemberList() {
 		return memberRepository.getMemberList();
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	@Override
 	public MemberVO loginCheck(String email, String password) {		
 		// 로그인
-		// 1. 로그인 시도		
+		// 로그인 시도		
 		return memberRepository.loginCheck(email, password);
 	}
 
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	@Override
 	public String emailSearch(String phoneNumber, String birthDate) {
 		//이메일 찾기
 		return memberRepository.emailSearch(phoneNumber, birthDate);
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원가입 시 중복확인
 	@Override
 	public int overlapChk(MemberVO memberVO) {	
 		return memberRepository.overlapChk(memberVO);
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원가입
 	@Override
 	public void insertMember(MemberVO member) {
 		memberRepository.insertMember(member);
 	}
 
-	//작성자: 이기쁨	
+	// 작성자: 이기쁨	
 	@Override
 	public int updateMember(MemberVO memberVO) {
 		//로그인 시 비밀번호 변경		
@@ -79,7 +77,7 @@ public class MemberService implements IMemberService {
 		return memberRepository.updateMember(memberVO);
 	}
 	
-	//작성자: 이기쁨
+	// 작성자: 이기쁨
 	//회원 정보 확인하기
 	@Override
 	public MemberVO getMemberInfo(MemberVO membervO) {

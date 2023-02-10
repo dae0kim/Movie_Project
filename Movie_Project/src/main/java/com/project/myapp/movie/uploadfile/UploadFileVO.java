@@ -2,6 +2,7 @@ package com.project.myapp.movie.uploadfile;
 
 import java.util.Arrays;
 
+//작성자 : 김대영
 public class UploadFileVO {
 	private String fileId;
 	private String directoryName;

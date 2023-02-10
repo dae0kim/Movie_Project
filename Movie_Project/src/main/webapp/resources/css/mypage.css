@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+/* 작성자 : 김미리,김대영 */
+
 .box {
   display: flex !important;
   margin: 10px;

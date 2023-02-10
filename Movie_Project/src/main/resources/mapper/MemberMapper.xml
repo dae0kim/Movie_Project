@@ -17,6 +17,7 @@
 		<result property="memberType" column="MEMBER_TYPE" />
 	</resultMap>
 	
+	<!-- 작성자 : 김대영 -->
 	<select id="getMemberList" resultMap="memberMap">
 		SELECT * FROM MEMBER
 		ORDER BY member_id DESC
